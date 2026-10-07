@@ -54,6 +54,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:radial-gradient(circle,rgba(48,224,200,.09),rgba(139,123,255,.05) 40%,transparent 70%);transform:translate(-600px,-600px);transition:opacity .4s;opacity:0}
 body:hover .cursor-glow{opacity:1}
 main,header,footer{position:relative;z-index:1}
+header{z-index:60}
 .progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:left;transform:scaleX(0);background:var(--grad);z-index:60}
 
 /* ===== Type ===== */
@@ -92,6 +93,9 @@ main,header,footer{position:relative;z-index:1}
 .icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--muted);transition:all .3s}
 .icon-btn:hover{color:var(--text);border-color:var(--turq)}
 .icon-btn svg{width:18px;height:18px}
+.lang-switch{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.04)}
+.lang-switch button{padding:6px 11px;border-radius:999px;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--muted);transition:all .3s}
+.lang-switch button.on{background:linear-gradient(180deg,#6ff5e2,var(--turq));color:#05110f}
 .burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);place-items:center}
 .burger span{display:block;width:16px;height:1.5px;background:var(--text);position:relative;transition:.3s}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1.5px;background:var(--text);transition:.3s}
@@ -133,7 +137,7 @@ main,header,footer{position:relative;z-index:1}
 .hero h1 .line:nth-child(3)>span{animation-delay:.24s}
 @keyframes rise{to{transform:none}}
 .hero h1 em{font-style:italic;font-weight:500}
-.rotator{display:inline-grid;vertical-align:bottom;justify-items:center}
+.rotator{display:inline-grid;vertical-align:bottom;justify-items:center;font-size:min(1em,8.4vw)}
 .rotator>*{grid-area:1/1;opacity:0;transform:translateY(40%);filter:blur(8px);transition:all .7s var(--ease);white-space:nowrap}
 .rotator>.on{opacity:1;transform:none;filter:none}
 .hero-sub{font-size:clamp(17px,1.9vw,21px);color:var(--muted);max-width:680px;margin:0 auto 40px;opacity:0;animation:fadeup 1s .4s var(--ease) forwards}
@@ -227,7 +231,15 @@ main,header,footer{position:relative;z-index:1}
 .about h2{font-size:clamp(36px,4.8vw,60px);margin:18px 0 24px}
 .about p{color:var(--muted);font-size:17.5px;margin:0 0 18px}
 .about p b{color:var(--text)}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:32px 0 36px}
+.exp{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;margin:30px 0 0;background:linear-gradient(120deg,rgba(48,224,200,.1),rgba(139,123,255,.08));border:1px solid rgba(48,224,200,.28);position:relative;overflow:hidden}
+.exp::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.06) 50%,transparent 70%);transform:translateX(-100%);animation:sweep 5s ease-in-out infinite;pointer-events:none}
+.exp-ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(48,224,200,.14);color:var(--turq)}
+.exp-ic svg{width:22px;height:22px}
+.exp-body small{display:block;color:var(--turq);font-size:12px;font-weight:700;font-family:var(--font-mono);letter-spacing:.02em}
+.exp-body b{display:block;font-family:var(--font-display);font-size:20px;letter-spacing:-.02em;margin:2px 0}
+.exp-body span{color:var(--muted);font-size:14px}
+.exp-badge{margin-left:auto;flex:none;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;color:var(--mint);background:rgba(94,240,160,.08);border:1px solid rgba(94,240,160,.25)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 36px}
 .fact{padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line);display:flex;gap:12px;align-items:center}
 .fact .fi{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:none}
 .fact .fi svg{width:18px;height:18px}
@@ -386,11 +398,6 @@ main,header,footer{position:relative;z-index:1}
 .nest .mod b{display:block;color:var(--rose);font-size:11px;margin-bottom:3px}
 .nest .col{display:flex;flex-direction:column;gap:10px}
 .nest svg.wires{width:40px;height:120px}
-.oqim-thumb{width:84%;max-width:440px;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 30px 60px -20px rgba(0,0,0,.8);background:radial-gradient(ellipse at 20% 0%,rgba(26,143,132,.6),transparent 60%),radial-gradient(ellipse at 90% 0%,rgba(75,63,184,.6),transparent 60%),#05060b;padding:28px 20px 0;text-align:center}
-.oqim-thumb .pl{display:inline-block;font-size:9px;font-weight:700;padding:3px 8px;border-radius:999px;border:1px solid var(--line-2);color:#cfd6e6}
-.oqim-thumb h4{font-family:var(--font-display);font-size:30px;letter-spacing:-.04em;line-height:1;margin:12px 0 14px}
-.oqim-thumb .mini{height:80px;border-radius:10px 10px 0 0;border:1px solid var(--line-2);border-bottom:0;background:#0d1020;display:flex;align-items:flex-end;gap:5px;padding:12px 14px 0}
-.oqim-thumb .mini i{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--turq),rgba(48,224,200,.15))}
 
 /* ===== Services ===== */
 .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -684,6 +691,8 @@ html.loading .hero *{animation-play-state:paused!important}
   .tl-item .yr,.tl-item:nth-child(odd) .yr{order:0;text-align:left;padding-top:0}
 }
 @media (max-width:720px){
+  .exp{flex-wrap:wrap}
+  .exp-badge{margin-left:62px}
   .case-metrics{grid-template-columns:1fr 1fr}
   .feat-list{grid-template-columns:1fr}
   .wu{grid-template-columns:1fr}
@@ -821,33 +830,34 @@ html.loading .hero *{animation-play-state:paused!important}
 
 <!-- ============ NAV ============ -->
 <header>
-  <nav class="nav" id="nav" aria-label="Asosiy menyu">
-    <a href="#" class="logo" aria-label="Bosh sahifa">
+  <nav data-i18n-aria-label="k1" class="nav" id="nav" aria-label="Asosiy menyu">
+    <a data-i18n-aria-label="k2" href="#" class="logo" aria-label="Bosh sahifa">
       <span class="logo-mark"><svg><use href="#i-logo"/></svg></span>
-      <span>Muxriddin<small>full-stack dev</small></span>
+      <span data-i18n="k3">Muxriddin<small>full-stack dev</small></span>
     </a>
     <ul class="nav-links">
-      <li><a href="#haqimda">Men haqimda</a></li>
-      <li><a href="#mahsulotlar">Mahsulotlar</a></li>
-      <li><a href="#konikmalar">Ko‘nikmalar</a></li>
-      <li><a href="#loyihalar">Loyihalar</a></li>
-      <li><a href="#xizmatlar">Xizmatlar</a></li>
-      <li><a href="#aloqa">Aloqa</a></li>
+      <li><a data-i18n="k4" href="#haqimda">Men haqimda</a></li>
+      <li><a data-i18n="k5" href="#mahsulotlar">Mahsulotlar</a></li>
+      <li><a data-i18n="k6" href="#konikmalar">Ko‘nikmalar</a></li>
+      <li><a data-i18n="k7" href="#loyihalar">Loyihalar</a></li>
+      <li><a data-i18n="k8" href="#xizmatlar">Xizmatlar</a></li>
+      <li><a data-i18n="k9" href="#aloqa">Aloqa</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="https://github.com/Muxur25" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
-      <a href="#aloqa" class="btn btn-primary btn-sm magnetic">Bog‘lanish</a>
-      <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false"><span></span></button>
+      <a data-i18n-aria-label="k10" href="https://github.com/Muxur25" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
+      <a data-i18n-text="k11" href="https://t.me/cardservers" target="_blank" rel="noopener" class="btn btn-primary btn-sm magnetic"><svg><use href="#i-tg"/></svg>Bog‘lanish</a>
+      <div class="lang-switch" role="group" aria-label="Til / Язык"><button type="button" data-lang="uz" class="on">UZ</button><button type="button" data-lang="ru">RU</button></div>
+      <button data-i18n-aria-label="k12" class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false"><span></span></button>
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#haqimda">Men haqimda</a>
-    <a href="#mahsulotlar">Mahsulotlar</a>
-    <a href="#konikmalar">Ko‘nikmalar</a>
-    <a href="#loyihalar">Loyihalar</a>
-    <a href="#xizmatlar">Xizmatlar</a>
-    <a href="#aloqa">Aloqa</a>
-    <a href="#aloqa" class="btn btn-primary">Bog‘lanish <svg class="arr"><use href="#i-arrow"/></svg></a>
+    <a data-i18n="k13" href="#haqimda">Men haqimda</a>
+    <a data-i18n="k14" href="#mahsulotlar">Mahsulotlar</a>
+    <a data-i18n="k15" href="#konikmalar">Ko‘nikmalar</a>
+    <a data-i18n="k16" href="#loyihalar">Loyihalar</a>
+    <a data-i18n="k17" href="#xizmatlar">Xizmatlar</a>
+    <a data-i18n="k18" href="#aloqa">Aloqa</a>
+    <a data-i18n-text="k19" href="https://t.me/cardservers" target="_blank" rel="noopener" class="btn btn-primary"><svg><use href="#i-tg"/></svg>Telegram’da yozish</a>
   </div>
 </header>
 
@@ -861,22 +871,22 @@ html.loading .hero *{animation-play-state:paused!important}
   </div>
   <div class="wrap">
     <div class="hero-inner">
-      <a href="#aloqa" class="pill"><img class="ava" src="https://avatars.githubusercontent.com/u/80653644?v=4" alt="" width="28" height="28" /> Salom, men Muxriddin<span class="hide-sm"> · yangi loyihalarga ochiqman</span> <span class="live-dot"></span></a>
+      <a data-i18n-text="k20" href="#aloqa" class="pill"><img class="ava" src="https://avatars.githubusercontent.com/u/80653644?v=4" alt="" width="28" height="28" /> Salom, men Muxriddin<span data-i18n="k21" class="hide-sm"> · yangi loyihalarga ochiqman</span> <span class="live-dot"></span></a>
       <h1 class="h-display">
-        <span class="line"><span>G‘oyalarni ishlaydigan</span></span>
-        <span class="line"><span><span class="rotator" id="rotator"><em class="grad-text on">mahsulotga</em><em class="grad-text">veb-ilovaga</em><em class="grad-text">Telegram botga</em><em class="grad-text">Android ilovaga</em><em class="grad-text">desktop ilovaga</em><em class="grad-text">API’ga</em></span></span></span>
-        <span class="line"><span>aylantiraman.</span></span>
+        <span class="line"><span data-i18n="k22">G‘oyalarni ishlaydigan</span></span>
+        <span class="line"><span><span class="rotator" id="rotator"><em data-i18n="k23" class="grad-text on">mahsulotga</em><em data-i18n="k24" class="grad-text">veb-ilovaga</em><em data-i18n="k25" class="grad-text">Telegram botga</em><em data-i18n="k26" class="grad-text">Android ilovaga</em><em data-i18n="k27" class="grad-text">desktop ilovaga</em><em data-i18n="k28" class="grad-text">API’ga</em></span></span></span>
+        <span class="line"><span data-i18n="k29">aylantiraman.</span></span>
       </h1>
-      <p class="hero-sub">Men <b>full-stack dasturchiman</b>. TypeScript, NestJS va React’da tez ishlaydigan, kengaytirish oson va foydalanuvchilar yoqtiradigan veb-ilovalar, Android va desktop ilovalar, backend tizimlar va Telegram botlar yarataman. <b>wordup.uz</b> va <b>celebrio.uz</b> muallifi.</p>
+      <p data-i18n="k30" class="hero-sub">Men <b>full-stack dasturchiman</b>. TypeScript, NestJS va React’da tez ishlaydigan, kengaytirish oson va foydalanuvchilar yoqtiradigan veb-ilovalar, Android va desktop ilovalar, backend tizimlar va Telegram botlar yarataman. <b>wordup.uz</b> va <b>celebrio.uz</b> muallifi.</p>
       <div class="hero-ctas">
-        <a href="#loyihalar" class="btn btn-primary magnetic">Loyihalarni ko‘rish <svg class="arr"><use href="#i-arrow"/></svg></a>
-        <a href="https://github.com/Muxur25" target="_blank" rel="noopener" class="btn btn-ghost magnetic"><svg><use href="#i-gh"/></svg> GitHub profilim</a>
+        <a data-i18n-text="k31" href="#loyihalar" class="btn btn-primary magnetic">Loyihalarni ko‘rish <svg class="arr"><use href="#i-arrow"/></svg></a>
+        <a data-i18n-text="k32" href="https://github.com/Muxur25" target="_blank" rel="noopener" class="btn btn-ghost magnetic"><svg><use href="#i-gh"/></svg> GitHub profilim</a>
       </div>
       <div class="hero-meta">
-        <span><svg><use href="#i-pin"/></svg>O‘zbekiston</span>
-        <span><svg><use href="#i-code"/></svg>TypeScript · NestJS · React</span>
-        <span><svg><use href="#i-rocket"/></svg>Web · Android · Desktop · Telegram</span>
-        <span><svg><use href="#i-lang"/></svg>Masofaviy ishga tayyor</span>
+        <span data-i18n-text="k33"><svg><use href="#i-pin"/></svg>O‘zbekiston</span>
+        <span data-i18n-text="k34"><svg><use href="#i-code"/></svg>TypeScript · NestJS · React</span>
+        <span data-i18n-text="k35"><svg><use href="#i-rocket"/></svg>Web · Android · Desktop · Telegram</span>
+        <span data-i18n-text="k36"><svg><use href="#i-lang"/></svg>Masofaviy ishga tayyor</span>
       </div>
     </div>
 
@@ -885,16 +895,16 @@ html.loading .hero *{animation-play-state:paused!important}
       <div class="stage-glow"></div>
 
       <div class="float-card fc-gh">
-        <img src="https://avatars.githubusercontent.com/u/80653644?v=4" alt="Muxriddin GitHub avatari" width="44" height="44" />
-        <div><b>@Muxur25</b><small>50+ repozitoriya · GitHub</small></div>
+        <img data-i18n-alt="k37" src="https://avatars.githubusercontent.com/u/80653644?v=4" alt="Muxriddin GitHub avatari" width="44" height="44" />
+        <div><b data-i18n="k38">@Muxur25</b><small data-i18n="k39">50+ repozitoriya · GitHub</small></div>
       </div>
       <div class="float-card fc-deploy">
         <span class="ic"><svg><use href="#i-rocket"/></svg></span>
-        <div><small>Deploy · production</small><b>Muvaffaqiyatli ✓</b></div>
+        <div><small data-i18n="k40">Deploy · production</small><b data-i18n="k41">Muvaffaqiyatli ✓</b></div>
       </div>
       <div class="float-card fc-now">
-        <div class="t"><span class="live-dot"></span> Hozir ustida ishlayapman</div>
-        <p>Telegram mini-ilovalar va NestJS asosidagi backend tizimlar</p>
+        <div data-i18n="k42" class="t"><span class="live-dot"></span> Hozir ustida ishlayapman</div>
+        <p data-i18n="k43">Telegram mini-ilovalar va NestJS asosidagi backend tizimlar</p>
       </div>
 
       <div class="ide" id="ide">
@@ -942,7 +952,7 @@ html.loading .hero *{animation-play-state:paused!important}
 
 <!-- ============ STACK MARQUEE ============ -->
 <section class="logos">
-  <p>Kundalik ishlatadigan texnologiyalarim</p>
+  <p data-i18n="k44">Kundalik ishlatadigan texnologiyalarim</p>
   <div class="marquee">
     <div class="marquee-track" id="logoTrack">
       <span class="brand"><span class="b" style="background:#3b82f6;color:#fff">TS</span>TypeScript</span>
@@ -965,10 +975,10 @@ html.loading .hero *{animation-play-state:paused!important}
 <section style="padding:60px 0 0">
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><b><span class="count" data-to="50">0</span>+</b><span>GitHub repozitoriyasi</span></div>
-      <div class="stat"><b><span class="count" data-to="10">0</span>+</b><span>production loyiha</span></div>
-      <div class="stat"><b><span class="count" data-to="6">0</span>+</b><span>Telegram bot</span></div>
-      <div class="stat"><b><span class="count" data-to="4">0</span></b><span>platforma: Web · Android · Desktop · Telegram</span></div>
+      <div class="stat"><b><span class="count" data-to="50">0</span>+</b><span data-i18n="k45">GitHub repozitoriyasi</span></div>
+      <div class="stat"><b><span class="count" data-to="10">0</span>+</b><span data-i18n="k46">production loyiha</span></div>
+      <div class="stat"><b><span class="count" data-to="6">0</span>+</b><span data-i18n="k47">Telegram bot</span></div>
+      <div class="stat"><b><span class="count" data-to="4">0</span></b><span data-i18n="k48">platforma: Web · Android · Desktop · Telegram</span></div>
     </div>
   </div>
 </section>
@@ -978,28 +988,33 @@ html.loading .hero *{animation-play-state:paused!important}
   <div class="wrap about">
     <div class="portrait reveal" aria-hidden="true">
       <div class="ring r1">
-        <span class="chip" style="top:6%;left:10%"><i style="background:#3b82f6"></i>TypeScript</span>
-        <span class="chip" style="bottom:10%;right:2%"><i style="background:var(--rose)"></i>NestJS</span>
-        <span class="chip" style="top:46%;right:-6%"><i style="background:var(--sky)"></i>React</span>
+        <span data-i18n="k49" class="chip" style="top:6%;left:10%"><i style="background:#3b82f6"></i>TypeScript</span>
+        <span data-i18n="k50" class="chip" style="bottom:10%;right:2%"><i style="background:var(--rose)"></i>NestJS</span>
+        <span data-i18n="k51" class="chip" style="top:46%;right:-6%"><i style="background:var(--sky)"></i>React</span>
       </div>
       <div class="ring r2">
-        <span class="chip" style="bottom:2%;left:4%"><i style="background:var(--violet)"></i>Prisma</span>
-        <span class="chip" style="top:-4%;right:14%"><i style="background:var(--mint)"></i>Node.js</span>
+        <span data-i18n="k52" class="chip" style="bottom:2%;left:4%"><i style="background:var(--violet)"></i>Prisma</span>
+        <span data-i18n="k53" class="chip" style="top:-4%;right:14%"><i style="background:var(--mint)"></i>Node.js</span>
       </div>
-      <div class="photo"><img src="https://avatars.githubusercontent.com/u/80653644?v=4" alt="Muxriddin" /></div>
+      <div class="photo"><img data-i18n-alt="k54" src="https://avatars.githubusercontent.com/u/80653644?v=4" alt="Muxriddin" /></div>
     </div>
     <div class="reveal d1">
-      <span class="eyebrow">Men haqimda</span>
-      <h2 class="h-display">Kod yozaman. <span class="grad-text">Muammolarni yechaman.</span></h2>
-      <p>Salom! Men <b>Muxriddin</b> — veb-ilovalarning har ikki tomonini quradigan full-stack dasturchiman. Backend arxitekturasi, maʼlumotlar bazasi va API’dan tortib chiroyli, tez interfeyslargacha — loyihani boshidan oxirigacha olib boraman.</p>
-      <p>Ayniqsa <b>NestJS</b> bilan murakkab biznes-mantiqni tartibli modullarga ajratish va <b>Telegram botlar</b> orqali odamlarga qulay xizmatlar yaratish menga yoqadi. O‘quv platformalari, murojaatlar tizimi, til o‘rganish ilovalari — har bir loyiha meni yangi narsaga o‘rgatgan.</p>
-      <div class="facts">
-        <div class="fact"><span class="fi" style="background:rgba(48,224,200,.12);color:var(--turq)"><svg><use href="#i-pin"/></svg></span><div><small>Joylashuv</small><b>O‘zbekiston</b></div></div>
-        <div class="fact"><span class="fi" style="background:rgba(139,123,255,.12);color:var(--violet)"><svg><use href="#i-cal"/></svg></span><div><small>GitHub’da</small><b>2021-yildan beri</b></div></div>
-        <div class="fact"><span class="fi" style="background:rgba(245,185,66,.12);color:var(--gold)"><svg><use href="#i-code"/></svg></span><div><small>Asosiy til</small><b>TypeScript</b></div></div>
-        <div class="fact"><span class="fi" style="background:rgba(94,240,160,.12);color:var(--mint)"><svg><use href="#i-heart"/></svg></span><div><small>Holat</small><b>Ishga ochiq</b></div></div>
+      <span data-i18n="k55" class="eyebrow">Men haqimda</span>
+      <h2 data-i18n="k56" class="h-display">Kod yozaman. <span class="grad-text">Muammolarni yechaman.</span></h2>
+      <p data-i18n="k57">Salom! Men <b>Muxriddin</b> — veb-ilovalarning har ikki tomonini quradigan full-stack dasturchiman. Backend arxitekturasi, maʼlumotlar bazasi va API’dan tortib chiroyli, tez interfeyslargacha — loyihani boshidan oxirigacha olib boraman.</p>
+      <p data-i18n="k58">Ayniqsa <b>NestJS</b> bilan murakkab biznes-mantiqni tartibli modullarga ajratish va <b>Telegram botlar</b> orqali odamlarga qulay xizmatlar yaratish menga yoqadi. O‘quv platformalari, murojaatlar tizimi, til o‘rganish ilovalari — har bir loyiha meni yangi narsaga o‘rgatgan.</p>
+      <div class="exp">
+        <span class="exp-ic"><svg><use href="#i-server"/></svg></span>
+        <div class="exp-body"><small data-i18n="k59">Hozirgi ish joyi · 2025-yil dekabridan</small><b data-i18n="k60">“Olmaliq KMK” AJ</b><span data-i18n="k61">Axborot-kommunikatsiya texnologiyalari bo‘limi — IT texnik qo‘llab-quvvatlash mutaxassisi</span></div>
+        <span data-i18n="k62" class="exp-badge"><span class="live-dot"></span>Hozir</span>
       </div>
-      <a href="#aloqa" class="btn btn-primary magnetic">Birga ishlaylik <svg class="arr"><use href="#i-arrow"/></svg></a>
+      <div class="facts">
+        <div class="fact"><span class="fi" style="background:rgba(48,224,200,.12);color:var(--turq)"><svg><use href="#i-pin"/></svg></span><div><small data-i18n="k63">Joylashuv</small><b data-i18n="k64">O‘zbekiston</b></div></div>
+        <div class="fact"><span class="fi" style="background:rgba(139,123,255,.12);color:var(--violet)"><svg><use href="#i-cal"/></svg></span><div><small data-i18n="k65">GitHub’da</small><b data-i18n="k66">2021-yildan beri</b></div></div>
+        <div class="fact"><span class="fi" style="background:rgba(245,185,66,.12);color:var(--gold)"><svg><use href="#i-code"/></svg></span><div><small data-i18n="k67">Asosiy til</small><b data-i18n="k68">TypeScript</b></div></div>
+        <div class="fact"><span class="fi" style="background:rgba(94,240,160,.12);color:var(--mint)"><svg><use href="#i-heart"/></svg></span><div><small data-i18n="k69">Holat</small><b data-i18n="k70">Freelance’ga ochiq</b></div></div>
+      </div>
+      <a data-i18n-text="k71" href="https://t.me/cardservers" target="_blank" rel="noopener" class="btn btn-primary magnetic">Birga ishlaylik <svg class="arr"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -1008,22 +1023,24 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="yolim" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Mening yo‘lim</span>
-      <h2 class="h-display">Birinchi qatordan <span class="grad-text">production’gacha</span></h2>
-      <p>O‘quv mashqlaridan real foydalanuvchilar ishlatadigan platformalargacha bo‘lgan yo‘l.</p>
+      <span data-i18n="k72" class="eyebrow">Mening yo‘lim</span>
+      <h2 data-i18n="k73" class="h-display">Birinchi qatordan <span class="grad-text">production’gacha</span></h2>
+      <p data-i18n="k74">O‘quv mashqlaridan real foydalanuvchilar ishlatadigan platformalargacha bo‘lgan yo‘l.</p>
     </div>
     <div class="timeline" id="timeline">
       <div class="tl-line"><i id="tlFill"></i></div>
-      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2021<small>Boshlanish</small></div>
-        <div class="card tl-card"><h4>Dasturlashga ilk qadam</h4><p>GitHub’da hisob ochdim va kod yozish dunyosiga kirdim. Asosiy maqsad — o‘zim ishlatadigan narsalarni o‘zim qurish.</p></div></div>
-      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2024<small>Poydevor</small></div>
-        <div class="card tl-card"><h4>JavaScript, Node.js va bazalar</h4><p>JavaScript, TypeScript, Node.js, Express, PostgreSQL, React va Redux’ni chuqur o‘rgandim. Onlayn do‘kon va avtomobil ijarasi kabi to‘liq ilovalar qurdim.</p><div class="tags"><span>JS</span><span>Express</span><span>PostgreSQL</span><span>React + Redux</span></div></div></div>
-      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2025<small>Arxitektura</small></div>
-        <div class="card tl-card"><h4>NestJS va toza backend</h4><p>Modulli arxitektura, Prisma va Mongoose, JWT autentifikatsiya. Yangi loyihalarni tez boshlash uchun ochiq kodli starterlar yaratdim.</p><div class="tags"><span>NestJS</span><span>Prisma</span><span>Mongoose</span><span>JWT</span></div></div></div>
-      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2026<small>Bahor</small></div>
-        <div class="card tl-card"><h4>Birinchi production mahsulotlar</h4><p>LMS o‘quv platformasi, HelpDesk tizimi, Telegram botlar va WordUp (wordup.uz) — real foydalanuvchilar uchun ishga tushirildi.</p><div class="tags"><span>LMS</span><span>HelpDesk</span><span>WordUp</span><span>Telegram</span></div></div></div>
-      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2026<small>Kuz · hozir</small></div>
-        <div class="card tl-card"><h4>Katta platformalar</h4><p>Celebrio (celebrio.uz) raqamli taklifnomalar platformasi, kettuu carpooling Mini App’i va Efir TV platformasi: monorepo, real-time, to‘lovlar, e2e testlar.</p><div class="tags"><span>Celebrio</span><span>kettuu</span><span>Efir</span><span>Turborepo</span></div></div></div>
+      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2021<small data-i18n="k75">Boshlanish</small></div>
+        <div class="card tl-card"><h4 data-i18n="k76">Dasturlashga ilk qadam</h4><p data-i18n="k77">GitHub’da hisob ochdim va kod yozish dunyosiga kirdim. Asosiy maqsad — o‘zim ishlatadigan narsalarni o‘zim qurish.</p></div></div>
+      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2024<small data-i18n="k78">Poydevor</small></div>
+        <div class="card tl-card"><h4 data-i18n="k79">JavaScript, Node.js va bazalar</h4><p data-i18n="k80">JavaScript, TypeScript, Node.js, Express, PostgreSQL, React va Redux’ni chuqur o‘rgandim. Onlayn do‘kon va avtomobil ijarasi kabi to‘liq ilovalar qurdim.</p><div class="tags"><span data-i18n="k81">JS</span><span data-i18n="k82">Express</span><span data-i18n="k83">PostgreSQL</span><span data-i18n="k84">React + Redux</span></div></div></div>
+      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2025<small data-i18n="k85">Arxitektura</small></div>
+        <div class="card tl-card"><h4 data-i18n="k86">NestJS va toza backend</h4><p data-i18n="k87">Modulli arxitektura, Prisma va Mongoose, JWT autentifikatsiya. Yangi loyihalarni tez boshlash uchun ochiq kodli starterlar yaratdim.</p><div class="tags"><span data-i18n="k88">NestJS</span><span data-i18n="k89">Prisma</span><span data-i18n="k90">Mongoose</span><span data-i18n="k91">JWT</span></div></div></div>
+      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2025<small data-i18n="k92">Dekabr · hozir</small></div>
+        <div class="card tl-card"><h4 data-i18n="k93">“Olmaliq KMK” AJ — IT texnik qo‘llab-quvvatlash</h4><p data-i18n="k94">Olmaliq kon-metallurgiya kombinati aksiyadorlik jamiyatining Axborot-kommunikatsiya texnologiyalari bo‘limida ishlayman: foydalanuvchilarga texnik yordam, kompyuter va tarmoq texnikasi, dasturiy ta’minot bilan ishlash.</p><div class="tags"><span data-i18n="k95">IT Support</span><span data-i18n="k96">Tarmoq</span><span data-i18n="k97">Helpdesk</span><span data-i18n="k98">Korporativ IT</span></div></div></div>
+      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2026<small data-i18n="k99">Bahor</small></div>
+        <div class="card tl-card"><h4 data-i18n="k100">Birinchi production mahsulotlar</h4><p data-i18n="k101">LMS o‘quv platformasi, HelpDesk tizimi, Telegram botlar va WordUp (wordup.uz) — real foydalanuvchilar uchun ishga tushirildi.</p><div class="tags"><span data-i18n="k102">LMS</span><span data-i18n="k103">HelpDesk</span><span data-i18n="k104">WordUp</span><span data-i18n="k105">Telegram</span></div></div></div>
+      <div class="tl-item reveal"><span class="dot"></span><div class="yr">2026<small data-i18n="k106">Kuz · hozir</small></div>
+        <div class="card tl-card"><h4 data-i18n="k107">Katta platformalar</h4><p data-i18n="k108">Celebrio (celebrio.uz) raqamli taklifnomalar platformasi, kettuu carpooling Mini App’i va Efir TV platformasi: monorepo, real-time, to‘lovlar, e2e testlar.</p><div class="tags"><span data-i18n="k109">Celebrio</span><span data-i18n="k110">kettuu</span><span data-i18n="k111">Efir</span><span data-i18n="k112">Turborepo</span></div></div></div>
     </div>
   </div>
 </section>
@@ -1032,16 +1049,16 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="konikmalar" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Ko‘nikmalar</span>
-      <h2 class="h-display">Serverdan <span class="grad-text">ekrangacha</span></h2>
-      <p>Mahsulotni to‘liq qurish uchun kerak bo‘lgan barcha qatlamlar bilan ishlayman.</p>
+      <span data-i18n="k113" class="eyebrow">Ko‘nikmalar</span>
+      <h2 data-i18n="k114" class="h-display">Serverdan <span class="grad-text">ekrangacha</span></h2>
+      <p data-i18n="k115">Mahsulotni to‘liq qurish uchun kerak bo‘lgan barcha qatlamlar bilan ishlayman.</p>
     </div>
 
     <div class="bento">
       <article class="card s-back reveal">
         <div class="ico" style="color:var(--rose)"><svg><use href="#i-server"/></svg></div>
-        <h3>Backend va API</h3>
-        <p>NestJS’da modulli arxitektura, REST API, JWT autentifikatsiya, rollar va ruxsatlar. Prisma va Mongoose bilan ishonchli maʼlumotlar qatlami.</p>
+        <h3 data-i18n="k116">Backend va API</h3>
+        <p data-i18n="k117">NestJS’da modulli arxitektura, REST API, JWT autentifikatsiya, rollar va ruxsatlar. Prisma va Mongoose bilan ishonchli maʼlumotlar qatlami.</p>
         <div class="api">
 <div class="mini-code"><span class="n">@Controller</span>(<span class="s">'kurslar'</span>)
 <span class="k">export class</span> <span class="f">KursController</span> {
@@ -1052,49 +1069,49 @@ html.loading .hero *{animation-play-state:paused!important}
   }
 }</div>
           <div class="endpoints" id="endpoints">
-            <div class="ep"><span class="m" style="background:var(--mint)">GET</span>/api/kurslar<span class="st">200 · 24ms</span></div>
-            <div class="ep"><span class="m" style="background:var(--sky)">POST</span>/api/auth/kirish<span class="st">201 · 41ms</span></div>
-            <div class="ep"><span class="m" style="background:var(--gold)">PATCH</span>/api/murojaat/:id<span class="st">200 · 18ms</span></div>
-            <div class="ep"><span class="m" style="background:var(--rose)">DELETE</span>/api/sozlar/:id<span class="st">204 · 12ms</span></div>
+            <div data-i18n="k118" class="ep"><span class="m" style="background:var(--mint)">GET</span>/api/kurslar<span class="st">200 · 24ms</span></div>
+            <div data-i18n="k119" class="ep"><span class="m" style="background:var(--sky)">POST</span>/api/auth/kirish<span class="st">201 · 41ms</span></div>
+            <div data-i18n="k120" class="ep"><span class="m" style="background:var(--gold)">PATCH</span>/api/murojaat/:id<span class="st">200 · 18ms</span></div>
+            <div data-i18n="k121" class="ep"><span class="m" style="background:var(--rose)">DELETE</span>/api/sozlar/:id<span class="st">204 · 12ms</span></div>
           </div>
         </div>
       </article>
 
       <article class="card s-front reveal d1">
         <div class="ico" style="color:var(--sky)"><svg><use href="#i-layout"/></svg></div>
-        <h3>Frontend</h3>
-        <p>React va Next.js’da tez, moslashuvchan va jonli interfeyslar.</p>
+        <h3 data-i18n="k122">Frontend</h3>
+        <p data-i18n="k123">React va Next.js’da tez, moslashuvchan va jonli interfeyslar.</p>
         <div class="ui-mock" aria-hidden="true">
           <div class="row"><div class="blk" style="width:30%"></div><div class="blk" style="width:14%;margin-left:auto"></div></div>
           <div class="row"><div class="cardm"></div><div class="cardm"></div></div>
           <div class="row"><div class="blk" style="width:55%"></div><div class="btnm" style="margin-left:auto"></div></div>
         </div>
-        <div class="tags"><span>React</span><span>Next.js</span><span>Tailwind</span></div>
+        <div class="tags"><span data-i18n="k124">React</span><span data-i18n="k125">Next.js</span><span data-i18n="k126">Tailwind</span></div>
       </article>
 
       <article class="card s-bot reveal d2">
         <div class="ico" style="color:var(--sky)"><svg><use href="#i-tg"/></svg></div>
-        <h3>Telegram botlar</h3>
-        <p>Yuklab olish botlari, ob-havo, o‘quv va xizmat botlari — Telegram mini-ilovalar bilan birga.</p>
+        <h3 data-i18n="k127">Telegram botlar</h3>
+        <p data-i18n="k128">Yuklab olish botlari, ob-havo, o‘quv va xizmat botlari — Telegram mini-ilovalar bilan birga.</p>
         <div class="tg" aria-hidden="true">
-          <div class="tg-head"><span class="av"><svg><use href="#i-bolt"/></svg></span><div><b>So‘z o‘rganish boti</b><small id="tgStatus">bot</small></div></div>
+          <div class="tg-head"><span class="av"><svg><use href="#i-bolt"/></svg></span><div><b data-i18n="k129">So‘z o‘rganish boti</b><small id="tgStatus">bot</small></div></div>
           <div class="tg-body" id="tgBody"></div>
-          <div class="tg-input">Xabar yozing…<span class="send"><svg><use href="#i-send"/></svg></span></div>
+          <div data-i18n-text="k130" class="tg-input">Xabar yozing…<span class="send"><svg><use href="#i-send"/></svg></span></div>
         </div>
       </article>
 
       <article class="card s-db reveal">
         <div class="ico" style="color:var(--violet)"><svg><use href="#i-db"/></svg></div>
-        <h3>Maʼlumotlar bazasi</h3>
-        <p>Toʻg‘ri sxema — tez ilovaning asosi.</p>
+        <h3 data-i18n="k131">Maʼlumotlar bazasi</h3>
+        <p data-i18n="k132">Toʻg‘ri sxema — tez ilovaning asosi.</p>
         <div class="orbit" aria-hidden="true">
           <div class="ring o2">
-            <span class="sat" style="top:-14px;left:58px">PostgreSQL</span>
-            <span class="sat" style="bottom:-14px;left:60px">MongoDB</span>
+            <span data-i18n="k133" class="sat" style="top:-14px;left:58px">PostgreSQL</span>
+            <span data-i18n="k134" class="sat" style="bottom:-14px;left:60px">MongoDB</span>
           </div>
           <div class="ring o1">
-            <span class="sat" style="top:40px;left:-28px">Prisma</span>
-            <span class="sat" style="top:40px;right:-38px">Mongoose</span>
+            <span data-i18n="k135" class="sat" style="top:40px;left:-28px">Prisma</span>
+            <span data-i18n="k136" class="sat" style="top:40px;right:-38px">Mongoose</span>
           </div>
           <div class="core"><svg><use href="#i-db"/></svg></div>
         </div>
@@ -1102,22 +1119,22 @@ html.loading .hero *{animation-play-state:paused!important}
 
       <article class="card s-ops reveal d1">
         <div class="ico" style="color:var(--gold)"><svg><use href="#i-box"/></svg></div>
-        <h3>Deploy va DevOps</h3>
-        <p>Docker, Linux serverlar va Git — kod faqat ishlaydigan holatda chiqadi.</p>
+        <h3 data-i18n="k137">Deploy va DevOps</h3>
+        <p data-i18n="k138">Docker, Linux serverlar va Git — kod faqat ishlaydigan holatda chiqadi.</p>
         <div class="shell" id="shell" aria-hidden="true"></div>
       </article>
 
       <article class="card s-bars reveal">
         <div class="ico" style="color:var(--turq)"><svg><use href="#i-bolt"/></svg></div>
-        <h3>Asosiy texnologiyalar</h3>
-        <p>Har kuni ishlatadigan va chuqur biladigan vositalarim.</p>
+        <h3 data-i18n="k139">Asosiy texnologiyalar</h3>
+        <p data-i18n="k140">Har kuni ishlatadigan va chuqur biladigan vositalarim.</p>
         <div class="skill-bars">
-          <div class="sb"><div class="row"><span>TypeScript / JavaScript</span><span>kundalik</span></div><div class="track"><i style="--w:94%;background:linear-gradient(90deg,#3b82f6,var(--sky))"></i></div></div>
-          <div class="sb"><div class="row"><span>NestJS / Node.js</span><span>asosiy</span></div><div class="track"><i style="--w:90%;background:linear-gradient(90deg,var(--rose),#ffb0c0)"></i></div></div>
-          <div class="sb"><div class="row"><span>React / Next.js</span><span>asosiy</span></div><div class="track"><i style="--w:84%;background:linear-gradient(90deg,var(--turq),var(--sky))"></i></div></div>
-          <div class="sb"><div class="row"><span>Prisma / PostgreSQL</span><span>kuchli</span></div><div class="track"><i style="--w:82%;background:linear-gradient(90deg,var(--violet),#c792ff)"></i></div></div>
-          <div class="sb"><div class="row"><span>Telegram Bot API</span><span>sevimli</span></div><div class="track"><i style="--w:88%;background:linear-gradient(90deg,var(--sky),#b6dcff)"></i></div></div>
-          <div class="sb"><div class="row"><span>Docker / Linux</span><span>yaxshi</span></div><div class="track"><i style="--w:70%;background:linear-gradient(90deg,var(--gold),#ffd98a)"></i></div></div>
+          <div class="sb"><div class="row"><span data-i18n="k141">TypeScript / JavaScript</span><span data-i18n="k142">kundalik</span></div><div class="track"><i style="--w:94%;background:linear-gradient(90deg,#3b82f6,var(--sky))"></i></div></div>
+          <div class="sb"><div class="row"><span data-i18n="k143">NestJS / Node.js</span><span data-i18n="k144">asosiy</span></div><div class="track"><i style="--w:90%;background:linear-gradient(90deg,var(--rose),#ffb0c0)"></i></div></div>
+          <div class="sb"><div class="row"><span data-i18n="k145">React / Next.js</span><span data-i18n="k146">asosiy</span></div><div class="track"><i style="--w:84%;background:linear-gradient(90deg,var(--turq),var(--sky))"></i></div></div>
+          <div class="sb"><div class="row"><span data-i18n="k147">Prisma / PostgreSQL</span><span data-i18n="k148">kuchli</span></div><div class="track"><i style="--w:82%;background:linear-gradient(90deg,var(--violet),#c792ff)"></i></div></div>
+          <div class="sb"><div class="row"><span data-i18n="k149">Telegram Bot API</span><span data-i18n="k150">sevimli</span></div><div class="track"><i style="--w:88%;background:linear-gradient(90deg,var(--sky),#b6dcff)"></i></div></div>
+          <div class="sb"><div class="row"><span data-i18n="k151">Docker / Linux</span><span data-i18n="k152">yaxshi</span></div><div class="track"><i style="--w:70%;background:linear-gradient(90deg,var(--gold),#ffd98a)"></i></div></div>
         </div>
       </article>
     </div>
@@ -1136,67 +1153,67 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="mahsulotlar">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Jonli mahsulotlar</span>
-      <h2 class="h-display">Internetda ishlab turgan <span class="grad-text">mahsulotlarim</span></h2>
-      <p>G‘oyadan dizayn, backend, to‘lovlar va deploy’gacha — boshidan oxirigacha o‘zim qurgan, hozir internetda ishlab turgan platformalar.</p>
+      <span data-i18n="k153" class="eyebrow">Jonli mahsulotlar</span>
+      <h2 data-i18n="k154" class="h-display">Internetda ishlab turgan <span class="grad-text">mahsulotlarim</span></h2>
+      <p data-i18n="k155">G‘oyadan dizayn, backend, to‘lovlar va deploy’gacha — boshidan oxirigacha o‘zim qurgan, hozir internetda ishlab turgan platformalar.</p>
     </div>
 
     <!-- WordUp -->
     <article class="case" id="caseWordup">
       <div class="case-vis reveal">
         <div class="halo" style="background:radial-gradient(circle,#6366f1,#a855f7 40%,transparent 70%)"></div>
-        <div class="wu-float" style="left:-4%;top:6%;animation:bob 6s ease-in-out infinite"><span class="ic" style="background:rgba(236,72,153,.15)">🔥</span><div><small>Ketma-ket seriya</small><b>12 kun</b></div></div>
-        <div class="wu-float" style="right:-3%;bottom:8%;animation:bob 7s 1s ease-in-out infinite"><span class="ic" style="background:rgba(99,102,241,.18)">⏱</span><div><small>Pomodoro fokus</small><b class="mono" id="pomo">24:59</b></div></div>
+        <div class="wu-float" style="left:-4%;top:6%;animation:bob 6s ease-in-out infinite"><span class="ic" style="background:rgba(236,72,153,.15)">🔥</span><div><small data-i18n="k156">Ketma-ket seriya</small><b data-i18n="k157">12 kun</b></div></div>
+        <div class="wu-float" style="right:-3%;bottom:8%;animation:bob 7s 1s ease-in-out infinite"><span class="ic" style="background:rgba(99,102,241,.18)">⏱</span><div><small data-i18n="k158">Pomodoro fokus</small><b class="mono" id="pomo">24:59</b></div></div>
         <div class="browser tilt">
-          <div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url-bar"><svg><use href="#i-lock"/></svg>wordup.uz/dashboard</div></div>
+          <div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div data-i18n-text="k159" class="url-bar"><svg><use href="#i-lock"/></svg>wordup.uz/dashboard</div></div>
           <div class="wu">
             <div class="wu-side">
-              <div class="brand-row"><img src="assets/wordup-icon.svg" alt="" />WordUp</div>
-              <span class="on">Bosh sahifa</span><span>Kitoblar</span><span>Sevimlilar</span><span>Musiqa</span><span>Statistika</span><span>Profil</span>
+              <div data-i18n-text="k160" class="brand-row"><img src="assets/wordup-icon.svg" alt="" />WordUp</div>
+              <span data-i18n="k161" class="on">Bosh sahifa</span><span data-i18n="k162">Kitoblar</span><span data-i18n="k163">Sevimlilar</span><span data-i18n="k164">Musiqa</span><span data-i18n="k165">Statistika</span><span data-i18n="k166">Profil</span>
             </div>
             <div class="wu-main">
-              <div class="wu-top"><b>Bugungi takrorlash</b><span class="wu-chip" style="margin-left:auto">🇬🇧 Ingliz · B1</span></div>
-              <div class="wu-modes" id="wuModes"><span class="on">O‘qish</span><span>Tezkor</span><span>Tinglash</span><span>Yozish</span><span>Gapirish</span><span>Moslash</span></div>
+              <div class="wu-top"><b data-i18n="k167">Bugungi takrorlash</b><span data-i18n="k168" class="wu-chip" style="margin-left:auto">🇬🇧 Ingliz · B1</span></div>
+              <div class="wu-modes" id="wuModes"><span data-i18n="k169" class="on">O‘qish</span><span data-i18n="k170">Tezkor</span><span data-i18n="k171">Tinglash</span><span data-i18n="k172">Yozish</span><span data-i18n="k173">Gapirish</span><span data-i18n="k174">Moslash</span></div>
               <div class="wu-stage">
                 <div class="wu-card" id="wuCard"><div class="inner">
                   <div class="face front"><span class="lang" id="wuLang">EN</span><b id="wuFront">Achievement</b><small id="wuHint">/əˈtʃiːv.mənt/ · aylantiring</small></div>
-                  <div class="face back"><b id="wuBack">Yutuq</b><small>✓ yodlandi · +10 XP</small></div>
+                  <div class="face back"><b id="wuBack">Yutuq</b><small data-i18n="k175">✓ yodlandi · +10 XP</small></div>
                 </div></div>
                 <div class="wu-side2">
-                  <div class="wu-box"><svg class="ring-prog" viewBox="0 0 64 64"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28"/></svg><b>78%</b>eslab qolish</div>
-                  <div class="wu-box"><b id="wuCount">142</b>bugun takrorlandi</div>
+                  <div data-i18n-text="k176" class="wu-box"><svg class="ring-prog" viewBox="0 0 64 64"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28"/></svg><b>78%</b>eslab qolish</div>
+                  <div data-i18n-text="k177" class="wu-box"><b id="wuCount">142</b>bugun takrorlandi</div>
                 </div>
               </div>
-              <div class="wu-bottom"><span class="wu-chip">Daraja 7</span><div class="xp"><i></i></div><span class="wu-chip">720 / 1000 XP</span></div>
+              <div class="wu-bottom"><span data-i18n="k178" class="wu-chip">Daraja 7</span><div class="xp"><i></i></div><span data-i18n="k179" class="wu-chip">720 / 1000 XP</span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="reveal d1">
         <div class="case-head">
-          <span class="lg"><img src="assets/wordup-icon.svg" alt="WordUp logotipi" /></span>
-          <div><b>WordUp</b><a class="url" href="https://wordup.uz" target="_blank" rel="noopener">wordup.uz ↗</a></div>
-          <span class="status"><span class="live-dot"></span>Ishlamoqda</span>
+          <span class="lg"><img data-i18n-alt="k180" src="assets/wordup-icon.svg" alt="WordUp logotipi" /></span>
+          <div><b data-i18n="k181">WordUp</b><a data-i18n="k182" class="url" href="https://wordup.uz" target="_blank" rel="noopener">wordup.uz ↗</a></div>
+          <span data-i18n="k183" class="status"><span class="live-dot"></span>Ishlamoqda</span>
         </div>
-        <h3>Ingliz va rus so‘zlarini <span style="background:linear-gradient(90deg,#818cf8,#c084fc,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent">tez yodlang</span> va hech qachon unutmang</h3>
-        <p>Aqlli takrorlash (spaced repetition) tizimiga asoslangan so‘z o‘rganish platformasi. WordUp siz unutayotgan so‘zlarni aniqlaydi va aynan kerakli vaqtda qayta chiqaradi — natijada so‘zlar uzoq xotirada qoladi. Telegram Mini App versiyasi ham bor.</p>
+        <h3 data-i18n="k184">Ingliz va rus so‘zlarini <span style="background:linear-gradient(90deg,#818cf8,#c084fc,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent">tez yodlang</span> va hech qachon unutmang</h3>
+        <p data-i18n="k185">Aqlli takrorlash (spaced repetition) tizimiga asoslangan so‘z o‘rganish platformasi. WordUp siz unutayotgan so‘zlarni aniqlaydi va aynan kerakli vaqtda qayta chiqaradi — natijada so‘zlar uzoq xotirada qoladi. Telegram Mini App versiyasi ham bor.</p>
         <div class="case-metrics">
-          <div><b>2</b><small>til: ingliz · rus</small></div>
-          <div><b>7</b><small>o‘rganish rejimi</small></div>
-          <div><b>SRS</b><small>aqlli takrorlash</small></div>
-          <div><b>Web+TG</b><small>platforma</small></div>
+          <div><b>2</b><small data-i18n="k186">til: ingliz · rus</small></div>
+          <div><b>7</b><small data-i18n="k187">o‘rganish rejimi</small></div>
+          <div><b data-i18n="k188">SRS</b><small data-i18n="k189">aqlli takrorlash</small></div>
+          <div><b data-i18n="k190">Web+TG</b><small data-i18n="k191">platforma</small></div>
         </div>
         <ul class="feat-list">
-          <li><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>O‘qish, tinglash, yozish va gapirish rejimlari</li>
-          <li><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Daraja aniqlash testi (placement test)</li>
-          <li><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Kitoblar va o‘z so‘z to‘plamlaringiz</li>
-          <li><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Musiqa va Pomodoro fokus vositalari</li>
-          <li><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Seriya, statistika va analitika paneli</li>
-          <li><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Admin panel, tariflar va to‘lovlar</li>
+          <li data-i18n-text="k192"><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>O‘qish, tinglash, yozish va gapirish rejimlari</li>
+          <li data-i18n-text="k193"><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Daraja aniqlash testi (placement test)</li>
+          <li data-i18n-text="k194"><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Kitoblar va o‘z so‘z to‘plamlaringiz</li>
+          <li data-i18n-text="k195"><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Musiqa va Pomodoro fokus vositalari</li>
+          <li data-i18n-text="k196"><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Seriya, statistika va analitika paneli</li>
+          <li data-i18n-text="k197"><i style="background:rgba(99,102,241,.18);color:#a5b4fc"><svg><use href="#i-check"/></svg></i>Admin panel, tariflar va to‘lovlar</li>
         </ul>
-        <div class="tags"><span>React</span><span>TypeScript</span><span>Framer Motion</span><span>i18next</span><span>Socket.IO</span><span>NestJS</span><span>Telegram Web App</span></div>
+        <div class="tags"><span data-i18n="k198">React</span><span data-i18n="k199">TypeScript</span><span data-i18n="k200">Framer Motion</span><span data-i18n="k201">i18next</span><span data-i18n="k202">Socket.IO</span><span data-i18n="k203">NestJS</span><span data-i18n="k204">Telegram Web App</span></div>
         <div class="case-ctas">
-          <a href="https://wordup.uz" target="_blank" rel="noopener" class="btn btn-primary magnetic" style="background:linear-gradient(135deg,#818cf8,#a855f7);color:#fff;box-shadow:0 10px 40px -10px rgba(168,85,247,.8)">wordup.uz’ga o‘tish <svg class="arr"><use href="#i-arrow"/></svg></a>
+          <a data-i18n-text="k205" href="https://wordup.uz" target="_blank" rel="noopener" class="btn btn-primary magnetic" style="background:linear-gradient(135deg,#818cf8,#a855f7);color:#fff;box-shadow:0 10px 40px -10px rgba(168,85,247,.8)">wordup.uz’ga o‘tish <svg class="arr"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </article>
@@ -1206,24 +1223,24 @@ html.loading .hero *{animation-play-state:paused!important}
       <div class="case-vis reveal">
         <div class="halo" style="background:radial-gradient(circle,#b4566f,#5e2236 45%,transparent 70%)"></div>
         <div class="cel-stage">
-          <div class="cel-float f1"><span class="ic">💌</span><div><small>Yangi javob · hozirgina</small><b>Dilshod: “Albatta boraman” +2</b></div></div>
-          <div class="cel-float f2"><span class="ic">✓</span><div><small>Tasdiqlagan mehmonlar</small><span class="num" id="celGuests">128</span></div></div>
-          <div class="cel-float f3"><span class="ic">✈</span><div><small>Telegram bildirishnoma</small><b>RSVP keldi</b></div></div>
+          <div class="cel-float f1"><span class="ic">💌</span><div><small data-i18n="k206">Yangi javob · hozirgina</small><b data-i18n="k207">Dilshod: “Albatta boraman” +2</b></div></div>
+          <div class="cel-float f2"><span class="ic">✓</span><div><small data-i18n="k208">Tasdiqlagan mehmonlar</small><span class="num" id="celGuests">128</span></div></div>
+          <div class="cel-float f3"><span class="ic">✈</span><div><small data-i18n="k209">Telegram bildirishnoma</small><b data-i18n="k210">RSVP keldi</b></div></div>
           <div class="phone-x tilt">
             <div class="phone-screen" id="celScreen">
               <svg class="inv-ornament" viewBox="0 0 150 28"><path d="M2 14 C30 14 40 2 75 14 C110 26 120 14 148 14 M75 4 L79 14 L75 24 L71 14 Z"/></svg>
-              <span class="inv-kicker">Nikoh to‘yiga taklifnoma</span>
-              <div class="inv-names">Aziz<small>&amp;</small>Madina</div>
-              <div class="inv-date">21 · NOYABR · 2026 &nbsp;|&nbsp; 18:00</div>
+              <span data-i18n="k211" class="inv-kicker">Nikoh to‘yiga taklifnoma</span>
+              <div data-i18n="k212" class="inv-names">Aziz<small>&amp;</small>Madina</div>
+              <div data-i18n="k213" class="inv-date">21 · NOYABR · 2026 &nbsp;|&nbsp; 18:00</div>
               <div class="countdown">
-                <div><b id="cdD">00</b><small>kun</small></div>
-                <div><b id="cdH">00</b><small>soat</small></div>
-                <div><b id="cdM">00</b><small>daqiqa</small></div>
-                <div><b id="cdS">00</b><small>soniya</small></div>
+                <div><b id="cdD">00</b><small data-i18n="k214">kun</small></div>
+                <div><b id="cdH">00</b><small data-i18n="k215">soat</small></div>
+                <div><b id="cdM">00</b><small data-i18n="k216">daqiqa</small></div>
+                <div><b id="cdS">00</b><small data-i18n="k217">soniya</small></div>
               </div>
-              <div class="inv-place"><svg><use href="#i-pin"/></svg>“Navro‘z” to‘yxonasi · Xaritada ochish</div>
-              <div class="rsvp"><span class="yes">Albatta boraman ✓</span><span class="no">Afsus, kela olmayman</span></div>
-              <div class="inv-music"><span class="eq"><i></i><i></i><i></i><i></i></span>Fon musiqasi yoqilgan</div>
+              <div data-i18n-text="k218" class="inv-place"><svg><use href="#i-pin"/></svg>“Navro‘z” to‘yxonasi · Xaritada ochish</div>
+              <div class="rsvp"><span data-i18n="k219" class="yes">Albatta boraman ✓</span><span data-i18n="k220" class="no">Afsus, kela olmayman</span></div>
+              <div data-i18n="k221" class="inv-music"><span class="eq"><i></i><i></i><i></i><i></i></span>Fon musiqasi yoqilgan</div>
             </div>
           </div>
         </div>
@@ -1231,28 +1248,28 @@ html.loading .hero *{animation-play-state:paused!important}
       <div class="reveal d1">
         <div class="case-head">
           <span class="lg"><svg viewBox="0 0 512 512"><rect width="512" height="512" rx="116" fill="url(#cel-bg)"/><path d="M360 190 A130 130 0 1 0 360 322" fill="none" stroke="url(#cel-gold)" stroke-width="50" stroke-linecap="round"/><path d="M372 96 L380 122 L406 130 L380 138 L372 164 L364 138 L338 130 L364 122 Z" fill="url(#cel-gold)"/></svg></span>
-          <div><b>Celebrio</b><a class="url" href="https://celebrio.uz" target="_blank" rel="noopener">celebrio.uz ↗</a></div>
-          <span class="status"><span class="live-dot"></span>Ishlamoqda</span>
+          <div><b data-i18n="k222">Celebrio</b><a data-i18n="k223" class="url" href="https://celebrio.uz" target="_blank" rel="noopener">celebrio.uz ↗</a></div>
+          <span data-i18n="k224" class="status"><span class="live-dot"></span>Ishlamoqda</span>
         </div>
-        <h3>Har bir taklifnoma — <span style="background:linear-gradient(110deg,#f6e3b4,#e2c083 40%,#c79a56);-webkit-background-clip:text;background-clip:text;color:transparent">unutilmas lahza</span></h3>
-        <p>Raqamli taklifnomalar platformasi: shablon tanlaysiz, uni shaxsiylashtirasiz, shaxsiy havolada nashr qilasiz va mehmonlar javoblarini (RSVP) bir joyda yig‘asiz. O‘zbek, rus va ingliz tillarida. Taklifnoma besh daqiqada tayyor bo‘ladi.</p>
+        <h3 data-i18n="k225">Har bir taklifnoma — <span style="background:linear-gradient(110deg,#f6e3b4,#e2c083 40%,#c79a56);-webkit-background-clip:text;background-clip:text;color:transparent">unutilmas lahza</span></h3>
+        <p data-i18n="k226">Raqamli taklifnomalar platformasi: shablon tanlaysiz, uni shaxsiylashtirasiz, shaxsiy havolada nashr qilasiz va mehmonlar javoblarini (RSVP) bir joyda yig‘asiz. O‘zbek, rus va ingliz tillarida. Taklifnoma besh daqiqada tayyor bo‘ladi.</p>
         <div class="case-metrics">
-          <div><b>3</b><small>til: uz · ru · en</small></div>
-          <div><b>8+</b><small>tadbir turi</small></div>
-          <div><b>~5 daq</b><small>yaratish vaqti</small></div>
-          <div><b>16</b><small>backend modul</small></div>
+          <div><b>3</b><small data-i18n="k227">til: uz · ru · en</small></div>
+          <div><b>8+</b><small data-i18n="k228">tadbir turi</small></div>
+          <div><b data-i18n="k229">~5 daq</b><small data-i18n="k230">yaratish vaqti</small></div>
+          <div><b>16</b><small data-i18n="k231">backend modul</small></div>
         </div>
         <ul class="feat-list">
-          <li><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>To‘y, unashtiruv, tug‘ilgan kun, aqiqa va boshqalar</li>
-          <li><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Bir bosishda RSVP va jonli mehmonlar ro‘yxati</li>
-          <li><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Jonli sanoq, xarita, galereya va fon musiqasi</li>
-          <li><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Premium shablonlar: oltin harflar, avrora nurlari</li>
-          <li><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Telegram bildirishnoma va CSV eksport</li>
-          <li><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Click va Payme to‘lov integratsiyasi</li>
+          <li data-i18n-text="k232"><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>To‘y, unashtiruv, tug‘ilgan kun, aqiqa va boshqalar</li>
+          <li data-i18n-text="k233"><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Bir bosishda RSVP va jonli mehmonlar ro‘yxati</li>
+          <li data-i18n-text="k234"><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Jonli sanoq, xarita, galereya va fon musiqasi</li>
+          <li data-i18n-text="k235"><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Premium shablonlar: oltin harflar, avrora nurlari</li>
+          <li data-i18n-text="k236"><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Telegram bildirishnoma va CSV eksport</li>
+          <li data-i18n-text="k237"><i style="background:rgba(226,192,131,.15);color:#e2c083"><svg><use href="#i-check"/></svg></i>Click va Payme to‘lov integratsiyasi</li>
         </ul>
-        <div class="tags"><span>NestJS 11</span><span>Prisma</span><span>PostgreSQL</span><span>React 19</span><span>Tailwind 4</span><span>Framer Motion</span><span>Playwright</span><span>Docker</span></div>
+        <div class="tags"><span data-i18n="k238">NestJS 11</span><span data-i18n="k239">Prisma</span><span data-i18n="k240">PostgreSQL</span><span data-i18n="k241">React 19</span><span data-i18n="k242">Tailwind 4</span><span data-i18n="k243">Framer Motion</span><span data-i18n="k244">Playwright</span><span data-i18n="k245">Docker</span></div>
         <div class="case-ctas">
-          <a href="https://celebrio.uz" target="_blank" rel="noopener" class="btn btn-primary magnetic" style="background:linear-gradient(110deg,#f6e3b4,#c79a56);color:#3d1424;box-shadow:0 10px 40px -10px rgba(226,192,131,.7)">celebrio.uz’ga o‘tish <svg class="arr"><use href="#i-arrow"/></svg></a>
+          <a data-i18n-text="k246" href="https://celebrio.uz" target="_blank" rel="noopener" class="btn btn-primary magnetic" style="background:linear-gradient(110deg,#f6e3b4,#c79a56);color:#3d1424;box-shadow:0 10px 40px -10px rgba(226,192,131,.7)">celebrio.uz’ga o‘tish <svg class="arr"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </article>
@@ -1263,15 +1280,15 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="loyihalar" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Loyihalar</span>
-      <h2 class="h-display">Tanlangan <span class="grad-text">ishlarim</span></h2>
-      <p>Har biri — real muammoga yechim. Ba’zilari ochiq kodli, ba’zilari mijozlar uchun yopiq.</p>
-      <div class="filters" id="filters" role="group" aria-label="Loyihalarni saralash">
+      <span data-i18n="k247" class="eyebrow">Loyihalar</span>
+      <h2 data-i18n="k248" class="h-display">Tanlangan <span class="grad-text">ishlarim</span></h2>
+      <p data-i18n="k249">Har biri — real muammoga yechim. Ba’zilari ochiq kodli, ba’zilari mijozlar uchun yopiq.</p>
+      <div data-i18n-aria-label="k250" class="filters" id="filters" role="group" aria-label="Loyihalarni saralash">
         <span class="knob" id="fknob"></span>
-        <button class="on" data-f="all">Hammasi</button>
-        <button data-f="web">Veb-ilovalar</button>
-        <button data-f="bot">Telegram</button>
-        <button data-f="api">Backend</button>
+        <button data-i18n="k251" class="on" data-f="all">Hammasi</button>
+        <button data-i18n="k252" data-f="web">Veb-ilovalar</button>
+        <button data-i18n="k253" data-f="bot">Telegram</button>
+        <button data-i18n="k254" data-f="api">Backend</button>
       </div>
     </div>
 
@@ -1282,24 +1299,23 @@ html.loading .hero *{animation-play-state:paused!important}
           <div class="v-window">
             <div class="bar"><i></i><i></i><i></i></div>
             <div class="bd">
-              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800">Mening kurslarim <span style="font-family:var(--font-mono);font-size:10px;color:var(--turq)">3 ta faol</span></div>
+              <div data-i18n="k255" style="display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800">Mening kurslarim <span style="font-family:var(--font-mono);font-size:10px;color:var(--turq)">3 ta faol</span></div>
               <div class="lms-grid">
-                <div class="course"><div class="th" style="background:linear-gradient(140deg,#30e0c8,#7cc4ff)">JS</div>JavaScript asoslari<div class="pg"><i style="width:82%;background:var(--turq)"></i></div></div>
-                <div class="course"><div class="th" style="background:linear-gradient(140deg,#8b7bff,#c792ff)">TS</div>TypeScript<div class="pg"><i style="width:54%;background:var(--violet)"></i></div></div>
-                <div class="course"><div class="th" style="background:linear-gradient(140deg,#f5b942,#ffd98a)">DB</div>SQL va bazalar<div class="pg"><i style="width:28%;background:var(--gold)"></i></div></div>
+                <div data-i18n-text="k256" class="course"><div data-i18n="k257" class="th" style="background:linear-gradient(140deg,#30e0c8,#7cc4ff)">JS</div>JavaScript asoslari<div class="pg"><i style="width:82%;background:var(--turq)"></i></div></div>
+                <div data-i18n-text="k258" class="course"><div data-i18n="k259" class="th" style="background:linear-gradient(140deg,#8b7bff,#c792ff)">TS</div>TypeScript<div class="pg"><i style="width:54%;background:var(--violet)"></i></div></div>
+                <div data-i18n-text="k260" class="course"><div data-i18n="k261" class="th" style="background:linear-gradient(140deg,#f5b942,#ffd98a)">DB</div>SQL va bazalar<div class="pg"><i style="width:28%;background:var(--gold)"></i></div></div>
               </div>
-              <div style="display:flex;gap:8px"><div class="course" style="flex:1;display:flex;align-items:center;gap:8px">🏆 Sertifikat tayyor</div><div class="course" style="flex:1;display:flex;align-items:center;gap:8px">📅 Dars: 19:00</div></div>
+              <div style="display:flex;gap:8px"><div data-i18n="k262" class="course" style="flex:1;display:flex;align-items:center;gap:8px">🏆 Sertifikat tayyor</div><div data-i18n="k263" class="course" style="flex:1;display:flex;align-items:center;gap:8px">📅 Dars: 19:00</div></div>
             </div>
           </div>
         </div>
         <div class="info">
-          <div class="top"><span class="cat">Veb-ilova · Full-stack</span>· 2026</div>
-          <h3 class="h-display">LMS — o‘quv boshqaruv tizimi</h3>
-          <p>Kurslar, darslar, talabalar va o‘qituvchilarni bitta platformada boshqarish uchun to‘liq tizim. Frontend va backend alohida xizmatlar sifatida qurilgan, rollarga asoslangan kirish huquqlari bilan.</p>
-          <div class="tags"><span>TypeScript</span><span>React</span><span>NestJS</span><span>REST API</span></div>
+          <div class="top"><span data-i18n="k264" class="cat">Veb-ilova · Full-stack</span>· 2026</div>
+          <h3 data-i18n="k265" class="h-display">LMS — o‘quv boshqaruv tizimi</h3>
+          <p data-i18n="k266">Kurslar, darslar, talabalar va o‘qituvchilarni bitta platformada boshqarish uchun to‘liq tizim. Frontend va backend alohida xizmatlar sifatida qurilgan, rollarga asoslangan kirish huquqlari bilan.</p>
+          <div class="tags"><span data-i18n="k267">TypeScript</span><span data-i18n="k268">React</span><span data-i18n="k269">NestJS</span><span data-i18n="k270">REST API</span></div>
           <div class="links">
-            <a class="lnk" href="https://github.com/Muxur25/lms-frontent" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Frontend kodi</a>
-            <span class="lnk lock"><svg><use href="#i-lock"/></svg>Backend — yopiq</span>
+            <span data-i18n-text="k271" class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span>
           </div>
         </div>
       </article>
@@ -1310,19 +1326,19 @@ html.loading .hero *{animation-play-state:paused!important}
           <div class="v-window" style="max-width:380px">
             <div class="bar"><i></i><i></i><i></i></div>
             <div class="bd tickets">
-              <div class="ticket"><span class="id">#1042</span>Printer ishlamayapti<span class="st" style="background:rgba(255,107,139,.15);color:var(--rose)">Yangi</span></div>
-              <div class="ticket"><span class="id">#1041</span>Parolni tiklash<span class="st" style="background:rgba(245,185,66,.15);color:var(--gold)">Jarayonda</span></div>
-              <div class="ticket"><span class="id">#1039</span>VPN ulanmayapti<span class="st" style="background:rgba(94,240,160,.15);color:var(--mint)">Hal qilindi</span></div>
-              <div class="ticket"><span class="id">#1036</span>Yangi hisob ochish<span class="st" style="background:rgba(94,240,160,.15);color:var(--mint)">Hal qilindi</span></div>
+              <div data-i18n="k272" class="ticket"><span class="id">#1042</span>Printer ishlamayapti<span class="st" style="background:rgba(255,107,139,.15);color:var(--rose)">Yangi</span></div>
+              <div data-i18n="k273" class="ticket"><span class="id">#1041</span>Parolni tiklash<span class="st" style="background:rgba(245,185,66,.15);color:var(--gold)">Jarayonda</span></div>
+              <div data-i18n="k274" class="ticket"><span class="id">#1039</span>VPN ulanmayapti<span class="st" style="background:rgba(94,240,160,.15);color:var(--mint)">Hal qilindi</span></div>
+              <div data-i18n="k275" class="ticket"><span class="id">#1036</span>Yangi hisob ochish<span class="st" style="background:rgba(94,240,160,.15);color:var(--mint)">Hal qilindi</span></div>
             </div>
           </div>
         </div>
         <div class="info">
-          <div class="top"><span class="cat">Veb-ilova</span>· 2026</div>
-          <h3 class="h-display">HelpDesk tizimi</h3>
-          <p>Murojaatlarni qabul qilish, mas’ullarga taqsimlash va holatini kuzatish uchun ichki yordam xizmati platformasi.</p>
-          <div class="tags"><span>NestJS</span><span>React</span><span>TypeScript</span></div>
-          <div class="links"><span class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span></div>
+          <div class="top"><span data-i18n="k276" class="cat">Veb-ilova</span>· 2026</div>
+          <h3 data-i18n="k277" class="h-display">HelpDesk tizimi</h3>
+          <p data-i18n="k278">Murojaatlarni qabul qilish, mas’ullarga taqsimlash va holatini kuzatish uchun ichki yordam xizmati platformasi.</p>
+          <div class="tags"><span data-i18n="k279">NestJS</span><span data-i18n="k280">React</span><span data-i18n="k281">TypeScript</span></div>
+          <div class="links"><span data-i18n-text="k282" class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span></div>
         </div>
       </article>
 
@@ -1330,16 +1346,16 @@ html.loading .hero *{animation-play-state:paused!important}
       <article class="card proj reveal d1" data-cat="web api" style="--glow:rgba(219,39,119,.25)">
         <div class="vis" aria-hidden="true">
           <div class="tv">
-            <div class="tv-screen"><span class="tv-live"><i></i>JONLI</span><b id="tvName">🇺🇿 O‘zbekiston 24</b></div>
+            <div class="tv-screen"><span data-i18n="k283" class="tv-live"><i></i>JONLI</span><b id="tvName">🇺🇿 O‘zbekiston 24</b></div>
             <div class="tv-ch" id="tvCh"><span class="on">🇺🇿</span><span>🇹🇷</span><span>🇰🇷</span><span>🇬🇧</span><span>🇯🇵</span><span>🇫🇷</span><span>🇩🇪</span><span>🇮🇹</span></div>
           </div>
         </div>
         <div class="info">
-          <div class="top"><span class="cat">Veb-platforma · Full-stack</span>· 2026</div>
-          <h3 class="h-display">Efir — dunyo telekanallari</h3>
-          <p>Har bir davlatning bepul jonli telekanallarini bir joyda ko‘rish platformasi: davlatni tanlang, kanalni tanlang, tomosha qiling. Maʼlumotlar rejali sinxronizatsiya bilan yangilanadi.</p>
-          <div class="tags"><span>React 18</span><span>hls.js</span><span>NestJS</span><span>TypeORM</span><span>PostgreSQL</span></div>
-          <div class="links"><span class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span></div>
+          <div class="top"><span data-i18n="k284" class="cat">Veb-platforma · Full-stack</span>· 2026</div>
+          <h3 data-i18n="k285" class="h-display">Efir — dunyo telekanallari</h3>
+          <p data-i18n="k286">Har bir davlatning bepul jonli telekanallarini bir joyda ko‘rish platformasi: davlatni tanlang, kanalni tanlang, tomosha qiling. Maʼlumotlar rejali sinxronizatsiya bilan yangilanadi.</p>
+          <div class="tags"><span data-i18n="k287">React 18</span><span data-i18n="k288">hls.js</span><span data-i18n="k289">NestJS</span><span data-i18n="k290">TypeORM</span><span data-i18n="k291">PostgreSQL</span></div>
+          <div class="links"><span data-i18n-text="k292" class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span></div>
         </div>
       </article>
 
@@ -1355,17 +1371,17 @@ html.loading .hero *{animation-play-state:paused!important}
               <circle cx="380" cy="50" r="8" fill="#f5b942"/>
               <g><circle r="9" fill="#fff"/><circle r="5" fill="#30e0c8"/><animateMotion dur="5s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></g>
             </svg>
-            <span class="map-chip" style="left:12px;bottom:12px">🟢 Chilonzor</span>
-            <span class="map-chip" style="right:12px;top:12px">🏁 Toshkent viloyati</span>
-            <span class="map-chip" style="right:12px;bottom:12px;color:var(--mint)">🚗 Haydovchi 4 daq · 25 000 so‘m</span>
+            <span data-i18n="k293" class="map-chip" style="left:12px;bottom:12px">🟢 Chilonzor</span>
+            <span data-i18n="k294" class="map-chip" style="right:12px;top:12px">🏁 Toshkent viloyati</span>
+            <span data-i18n="k295" class="map-chip" style="right:12px;bottom:12px;color:var(--mint)">🚗 Haydovchi 4 daq · 25 000 so‘m</span>
           </div>
         </div>
         <div class="info">
-          <div class="top"><span class="cat">Telegram Mini App · Monorepo</span>· 2026</div>
-          <h3 class="h-display">kettuu — carpooling platformasi</h3>
-          <p>Toshkent shahri va viloyati uchun birga yo‘l yurish xizmati. Yo‘lovchi Telegram Mini App’da mos haydovchini topadi, bron qiladi, jonli kuzatadi, to‘laydi va baholaydi. Haydovchi safar e’lon qiladi va daromadini ko‘radi, admin esa real-time SOS bilan hammasini boshqaradi.</p>
-          <div class="tags"><span>NestJS</span><span>PostGIS</span><span>BullMQ</span><span>Socket.IO</span><span>grammY</span><span>MapLibre</span><span>OSRM</span><span>Turborepo</span></div>
-          <div class="links"><span class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span></div>
+          <div class="top"><span data-i18n="k296" class="cat">Telegram Mini App · Monorepo</span>· 2026</div>
+          <h3 data-i18n="k297" class="h-display">kettuu — carpooling platformasi</h3>
+          <p data-i18n="k298">Toshkent shahri va viloyati uchun birga yo‘l yurish xizmati. Yo‘lovchi Telegram Mini App’da mos haydovchini topadi, bron qiladi, jonli kuzatadi, to‘laydi va baholaydi. Haydovchi safar e’lon qiladi va daromadini ko‘radi, admin esa real-time SOS bilan hammasini boshqaradi.</p>
+          <div class="tags"><span data-i18n="k299">NestJS</span><span data-i18n="k300">PostGIS</span><span data-i18n="k301">BullMQ</span><span data-i18n="k302">Socket.IO</span><span data-i18n="k303">grammY</span><span data-i18n="k304">MapLibre</span><span data-i18n="k305">OSRM</span><span data-i18n="k306">Turborepo</span></div>
+          <div class="links"><span data-i18n-text="k307" class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyiha</span></div>
         </div>
       </article>
 
@@ -1373,18 +1389,18 @@ html.loading .hero *{animation-play-state:paused!important}
       <article class="card proj reveal d1" data-cat="bot" style="--glow:rgba(94,240,160,.22)">
         <div class="vis" aria-hidden="true">
           <div class="bots">
-            <div class="bub me">https://… havola 🎬</div>
-            <div class="bub bot">⏳ Yuklanmoqda… <b style="color:var(--mint)">100%</b><small>✓ video tayyor</small></div>
-            <div class="bub me">/obhavo Toshkent</div>
-            <div class="bub bot">☀️ Toshkent: +24°C, ochiq osmon<small>bugun 12:04</small></div>
+            <div data-i18n="k308" class="bub me">https://… havola 🎬</div>
+            <div data-i18n="k309" class="bub bot">⏳ Yuklanmoqda… <b style="color:var(--mint)">100%</b><small>✓ video tayyor</small></div>
+            <div data-i18n="k310" class="bub me">/obhavo Toshkent</div>
+            <div data-i18n="k311" class="bub bot">☀️ Toshkent: +24°C, ochiq osmon<small>bugun 12:04</small></div>
           </div>
         </div>
         <div class="info">
-          <div class="top"><span class="cat">Telegram botlar</span>· 2026</div>
-          <h3 class="h-display">Telegram botlar to‘plami</h3>
-          <p>Media yuklab olish boti, ob-havo boti, vaqt va eslatma botlari hamda tashkilotlar uchun xizmat botlari.</p>
-          <div class="tags"><span>Telegram Bot API</span><span>TypeScript</span><span>Node.js</span></div>
-          <div class="links"><span class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyihalar</span></div>
+          <div class="top"><span data-i18n="k312" class="cat">Telegram botlar</span>· 2026</div>
+          <h3 data-i18n="k313" class="h-display">Telegram botlar to‘plami</h3>
+          <p data-i18n="k314">Media yuklab olish boti, ob-havo boti, vaqt va eslatma botlari hamda tashkilotlar uchun xizmat botlari.</p>
+          <div class="tags"><span data-i18n="k315">Telegram Bot API</span><span data-i18n="k316">TypeScript</span><span data-i18n="k317">Node.js</span></div>
+          <div class="links"><span data-i18n-text="k318" class="lnk lock"><svg><use href="#i-lock"/></svg>Yopiq loyihalar</span></div>
         </div>
       </article>
 
@@ -1392,52 +1408,32 @@ html.loading .hero *{animation-play-state:paused!important}
       <article class="card proj reveal" data-cat="api" style="--glow:rgba(255,107,139,.22)">
         <div class="vis" aria-hidden="true">
           <div class="nest">
-            <div class="mod"><b>@Module</b>AppModule</div>
+            <div data-i18n="k319" class="mod"><b>@Module</b>AppModule</div>
             <svg class="wires" viewBox="0 0 40 120"><path d="M0 60 C20 60 20 15 40 15 M0 60 L40 60 M0 60 C20 60 20 105 40 105" stroke="rgba(48,224,200,.6)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"><animate attributeName="stroke-dashoffset" from="16" to="0" dur="1s" repeatCount="indefinite"/></path></svg>
             <div class="col">
-              <div class="mod"><b>@Module</b>AuthModule</div>
-              <div class="mod"><b>@Module</b>UsersModule</div>
-              <div class="mod"><b>@Module</b>PrismaModule</div>
+              <div data-i18n="k320" class="mod"><b>@Module</b>AuthModule</div>
+              <div data-i18n="k321" class="mod"><b>@Module</b>UsersModule</div>
+              <div data-i18n="k322" class="mod"><b>@Module</b>PrismaModule</div>
             </div>
           </div>
         </div>
         <div class="info">
-          <div class="top"><span class="cat">Backend · Ochiq kod</span>· 2025</div>
-          <h3 class="h-display">NestJS starterlari</h3>
-          <p>NestJS + Prisma, NestJS + Mongoose va JWT autentifikatsiya bo‘yicha tayyor shablonlar — yangi loyihani tez boshlash uchun.</p>
-          <div class="tags"><span>NestJS</span><span>Prisma</span><span>Mongoose</span><span>JWT</span></div>
+          <div class="top"><span data-i18n="k323" class="cat">Backend · Ochiq kod</span>· 2025</div>
+          <h3 data-i18n="k324" class="h-display">NestJS starterlari</h3>
+          <p data-i18n="k325">NestJS + Prisma, NestJS + Mongoose va JWT autentifikatsiya bo‘yicha tayyor shablonlar — yangi loyihani tez boshlash uchun.</p>
+          <div class="tags"><span data-i18n="k326">NestJS</span><span data-i18n="k327">Prisma</span><span data-i18n="k328">Mongoose</span><span data-i18n="k329">JWT</span></div>
           <div class="links">
-            <a class="lnk" href="https://github.com/Muxur25/nestFullApp-with-prisma" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Prisma</a>
-            <a class="lnk" href="https://github.com/Muxur25/nestjs-with-mongoose" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Mongoose</a>
-            <a class="lnk" href="https://github.com/Muxur25/jwt-auth" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>JWT Auth</a>
+            <a data-i18n-text="k330" class="lnk" href="https://github.com/Muxur25/nestFullApp-with-prisma" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Prisma</a>
+            <a data-i18n-text="k331" class="lnk" href="https://github.com/Muxur25/nestjs-with-mongoose" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Mongoose</a>
+            <a data-i18n-text="k332" class="lnk" href="https://github.com/Muxur25/jwt-auth" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>JWT Auth</a>
           </div>
         </div>
       </article>
 
-      <!-- Oqim -->
-      <article class="card proj wide reveal" data-cat="web" style="--glow:rgba(245,185,66,.22)">
-        <div class="vis" aria-hidden="true" style="place-items:end center">
-          <div class="oqim-thumb">
-            <span class="pl">YANGI · Oqim AI 2.0</span>
-            <h4>Biznesingiz maʼlumotlari — <span class="grad-text">bir oqimda.</span></h4>
-            <div class="mini"><i style="height:30%"></i><i style="height:45%"></i><i style="height:38%"></i><i style="height:60%"></i><i style="height:52%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:90%"></i></div>
-          </div>
-        </div>
-        <div class="info">
-          <div class="top"><span class="cat">Landing sahifa · Dizayn</span>· 2026</div>
-          <h3 class="h-display">Oqim — SaaS landing</h3>
-          <p>AI analitika platformasi uchun o‘zbek tilidagi animatsiyali landing sahifa: 3D dashboard, jonli AI chat demosi, narxlar va boshqalar.</p>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="links">
-            <a class="lnk" href="oqim.html"><svg><use href="#i-ext"/></svg>Jonli ko‘rish</a>
-            <a class="lnk" href="https://github.com/Muxur25/muxur25.github.io" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Kod</a>
-          </div>
-        </div>
-      </article>
     </div>
 
     <div style="text-align:center;margin-top:48px" class="reveal">
-      <a href="https://github.com/Muxur25?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost magnetic"><svg><use href="#i-gh"/></svg> Barcha repozitoriyalar <svg class="arr"><use href="#i-arrow"/></svg></a>
+      <a data-i18n-text="k333" href="https://github.com/Muxur25?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost magnetic"><svg><use href="#i-gh"/></svg> Barcha repozitoriyalar <svg class="arr"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -1446,51 +1442,51 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="platformalar" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Platformalar</span>
-      <h2 class="h-display">Bitta g‘oya — <span class="grad-text">barcha ekranlarda</span></h2>
-      <p>Mahsulotingiz qayerda kerak bo‘lsa, o‘sha yerda bo‘ladi: brauzerda, Android telefonda, kompyuterda yoki Telegram ichida.</p>
+      <span data-i18n="k334" class="eyebrow">Platformalar</span>
+      <h2 data-i18n="k335" class="h-display">Bitta g‘oya — <span class="grad-text">barcha ekranlarda</span></h2>
+      <p data-i18n="k336">Mahsulotingiz qayerda kerak bo‘lsa, o‘sha yerda bo‘ladi: brauzerda, Android telefonda, kompyuterda yoki Telegram ichida.</p>
     </div>
     <div class="platforms reveal" id="platforms" aria-hidden="true">
       <div class="dev dev-desk" data-depth="10">
         <div class="win">
-          <div class="win-bar"><span>Oqim Desktop — Windows · macOS · Linux</span><span class="ctrl">— ▢ ✕</span></div>
+          <div class="win-bar"><span data-i18n="k337">Ombor Pro — Windows · macOS · Linux</span><span class="ctrl">— ▢ ✕</span></div>
           <div class="win-body">
             <div class="sb"><i></i><i></i><i></i><i></i><i></i><i></i></div>
             <div class="mn">
-              <div class="kp"><div>Savdo<b>1 284</b></div><div>Mijozlar<b>562</b></div><div>Daromad<b>+18%</b></div></div>
+              <div class="kp"><div data-i18n="k338">Savdo<b>1 284</b></div><div data-i18n="k339">Mijozlar<b>562</b></div><div data-i18n="k340">Daromad<b>+18%</b></div></div>
               <div class="ch"><i style="--h:40%"></i><i style="--h:65%;animation-delay:.2s"></i><i style="--h:50%;animation-delay:.4s"></i><i style="--h:80%;animation-delay:.6s"></i><i style="--h:60%;animation-delay:.8s"></i><i style="--h:92%;animation-delay:1s"></i><i style="--h:74%;animation-delay:1.2s"></i></div>
             </div>
           </div>
         </div>
-        <span class="dev-label">Desktop ilova</span>
+        <span data-i18n="k341" class="dev-label">Desktop ilova</span>
       </div>
       <div class="dev dev-tg" data-depth="22">
         <div class="dev-phone"><div class="scr">
-          <div class="hd"><i style="background:linear-gradient(140deg,#7cc4ff,#8b7bff)"></i>Buyurtma boti</div>
-          <div class="mb u">/menyu</div>
-          <div class="mb b">Assalomu alaykum! Bugungi menyu tayyor 🍽</div>
-          <div class="mb u">2 ta osh, 1 ta salat</div>
-          <div class="mb b">✅ Buyurtma qabul qilindi! 25 daqiqada yetkaziladi.</div>
-          <div class="wa">Mini App’ni ochish</div>
+          <div data-i18n="k342" class="hd"><i style="background:linear-gradient(140deg,#7cc4ff,#8b7bff)"></i>Buyurtma boti</div>
+          <div data-i18n="k343" class="mb u">/menyu</div>
+          <div data-i18n="k344" class="mb b">Assalomu alaykum! Bugungi menyu tayyor 🍽</div>
+          <div data-i18n="k345" class="mb u">2 ta osh, 1 ta salat</div>
+          <div data-i18n="k346" class="mb b">✅ Buyurtma qabul qilindi! 25 daqiqada yetkaziladi.</div>
+          <div data-i18n="k347" class="wa">Mini App’ni ochish</div>
         </div></div>
-        <span class="dev-label">Telegram bot · Mini App</span>
+        <span data-i18n="k348" class="dev-label">Telegram bot · Mini App</span>
       </div>
       <div class="dev dev-android" data-depth="30">
         <div class="dev-phone"><div class="scr">
-          <div class="hd"><i style="background:linear-gradient(140deg,#5ef0a0,#30e0c8)"></i>Android ilova</div>
-          <div class="tile">Bugungi balans<b>2 450 000 so‘m</b></div>
-          <div class="row2"><div class="tile">Buyurtma<b>34</b></div><div class="tile">Reyting<b>4.9</b></div></div>
-          <div class="tile" style="height:70px;background:linear-gradient(140deg,rgba(48,224,200,.18),rgba(139,123,255,.12))">Push bildirishnoma<b style="font-size:13px">Yangi buyurtma! 🔔</b></div>
+          <div data-i18n="k349" class="hd"><i style="background:linear-gradient(140deg,#5ef0a0,#30e0c8)"></i>Android ilova</div>
+          <div data-i18n="k350" class="tile">Bugungi balans<b>2 450 000 so‘m</b></div>
+          <div class="row2"><div data-i18n="k351" class="tile">Buyurtma<b>34</b></div><div data-i18n="k352" class="tile">Reyting<b>4.9</b></div></div>
+          <div data-i18n="k353" class="tile" style="height:70px;background:linear-gradient(140deg,rgba(48,224,200,.18),rgba(139,123,255,.12))">Push bildirishnoma<b style="font-size:13px">Yangi buyurtma! 🔔</b></div>
           <div class="navb"><i></i><i></i><i></i><i></i></div>
         </div></div>
-        <span class="dev-label">Android ilova</span>
+        <span data-i18n="k354" class="dev-label">Android ilova</span>
       </div>
     </div>
     <div class="plat-tags reveal">
-      <span><svg style="color:var(--sky)"><use href="#i-layout"/></svg><div>Veb<small>React · Next.js</small></div></span>
-      <span><svg style="color:var(--mint)"><use href="#i-android"/></svg><div>Android<small>Mobil ilovalar</small></div></span>
-      <span><svg style="color:var(--violet)"><use href="#i-desktop"/></svg><div>Desktop<small>Windows · macOS · Linux</small></div></span>
-      <span><svg style="color:var(--turq)"><use href="#i-tg"/></svg><div>Telegram<small>Bot · Mini App</small></div></span>
+      <span><svg style="color:var(--sky)"><use href="#i-layout"/></svg><div data-i18n="k355">Veb<small>React · Next.js</small></div></span>
+      <span><svg style="color:var(--mint)"><use href="#i-android"/></svg><div data-i18n="k356">Android<small>Mobil ilovalar</small></div></span>
+      <span><svg style="color:var(--violet)"><use href="#i-desktop"/></svg><div data-i18n="k357">Desktop<small>Windows · macOS · Linux</small></div></span>
+      <span><svg style="color:var(--turq)"><use href="#i-tg"/></svg><div data-i18n="k358">Telegram<small>Bot · Mini App</small></div></span>
     </div>
   </div>
 </section>
@@ -1499,51 +1495,51 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="xizmatlar" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Xizmatlar</span>
-      <h2 class="h-display">Sizga qanday <span class="grad-text">yordam bera olaman</span></h2>
+      <span data-i18n="k359" class="eyebrow">Xizmatlar</span>
+      <h2 data-i18n="k360" class="h-display">Sizga qanday <span class="grad-text">yordam bera olaman</span></h2>
     </div>
     <div class="services">
       <article class="card svc reveal">
         <span class="num">01</span>
         <div class="ico" style="color:var(--sky)"><svg><use href="#i-layout"/></svg></div>
-        <h3>Veb-ilova</h3>
-        <p>G‘oyadan tayyor mahsulotgacha, to‘liq full-stack ishlab chiqish.</p>
-        <ul><li><svg><use href="#i-check"/></svg>SaaS, CRM, LMS, admin panellar</li><li><svg><use href="#i-check"/></svg>Moslashuvchan va tez interfeys</li><li><svg><use href="#i-check"/></svg>Ko‘p tillilik (uz · ru · en)</li></ul>
+        <h3 data-i18n="k361">Veb-ilova</h3>
+        <p data-i18n="k362">G‘oyadan tayyor mahsulotgacha, to‘liq full-stack ishlab chiqish.</p>
+        <ul><li data-i18n-text="k363"><svg><use href="#i-check"/></svg>SaaS, CRM, LMS, admin panellar</li><li data-i18n-text="k364"><svg><use href="#i-check"/></svg>Moslashuvchan va tez interfeys</li><li data-i18n-text="k365"><svg><use href="#i-check"/></svg>Ko‘p tillilik (uz · ru · en)</li></ul>
       </article>
       <article class="card svc reveal d1">
         <span class="num">02</span>
         <div class="ico" style="color:var(--mint)"><svg><use href="#i-android"/></svg></div>
-        <h3>Android ilovalar</h3>
-        <p>Telefoningizda ishlaydigan qulay va tez mobil ilovalar.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Biznes va xizmat ilovalari</li><li><svg><use href="#i-check"/></svg>Push bildirishnomalar va oflayn rejim</li><li><svg><use href="#i-check"/></svg>Google Play’ga joylash</li></ul>
+        <h3 data-i18n="k366">Android ilovalar</h3>
+        <p data-i18n="k367">Telefoningizda ishlaydigan qulay va tez mobil ilovalar.</p>
+        <ul><li data-i18n-text="k368"><svg><use href="#i-check"/></svg>Biznes va xizmat ilovalari</li><li data-i18n-text="k369"><svg><use href="#i-check"/></svg>Push bildirishnomalar va oflayn rejim</li><li data-i18n-text="k370"><svg><use href="#i-check"/></svg>Google Play’ga joylash</li></ul>
       </article>
       <article class="card svc reveal d2">
         <span class="num">03</span>
         <div class="ico" style="color:var(--violet)"><svg><use href="#i-desktop"/></svg></div>
-        <h3>Desktop ilovalar</h3>
-        <p>Kompyuter uchun kuchli dasturlar: ofis, ombor, kassa va boshqaruv tizimlari.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Windows, macOS va Linux uchun</li><li><svg><use href="#i-check"/></svg>Oflayn ishlash va sinxronizatsiya</li><li><svg><use href="#i-check"/></svg>Avtomatik yangilanish</li></ul>
+        <h3 data-i18n="k371">Desktop ilovalar</h3>
+        <p data-i18n="k372">Kompyuter uchun kuchli dasturlar: ofis, ombor, kassa va boshqaruv tizimlari.</p>
+        <ul><li data-i18n-text="k373"><svg><use href="#i-check"/></svg>Windows, macOS va Linux uchun</li><li data-i18n-text="k374"><svg><use href="#i-check"/></svg>Oflayn ishlash va sinxronizatsiya</li><li data-i18n-text="k375"><svg><use href="#i-check"/></svg>Avtomatik yangilanish</li></ul>
       </article>
       <article class="card svc reveal">
         <span class="num">04</span>
         <div class="ico" style="color:var(--turq)"><svg><use href="#i-tg"/></svg></div>
-        <h3>Telegram bot va Mini App</h3>
-        <p>Biznesingiz uchun aqlli yordamchi va Telegram ichidagi ilovalar.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Buyurtma, bron va xizmat botlari</li><li><svg><use href="#i-check"/></svg>Telegram Web App (Mini App)</li><li><svg><use href="#i-check"/></svg>Admin panel va to‘lovlar</li></ul>
+        <h3 data-i18n="k376">Telegram bot va Mini App</h3>
+        <p data-i18n="k377">Biznesingiz uchun aqlli yordamchi va Telegram ichidagi ilovalar.</p>
+        <ul><li data-i18n-text="k378"><svg><use href="#i-check"/></svg>Buyurtma, bron va xizmat botlari</li><li data-i18n-text="k379"><svg><use href="#i-check"/></svg>Telegram Web App (Mini App)</li><li data-i18n-text="k380"><svg><use href="#i-check"/></svg>Admin panel va to‘lovlar</li></ul>
       </article>
       <article class="card svc reveal d1">
         <span class="num">05</span>
         <div class="ico" style="color:var(--rose)"><svg><use href="#i-server"/></svg></div>
-        <h3>Backend va API</h3>
-        <p>Ishonchli, xavfsiz va kengaytiriladigan server tomoni.</p>
-        <ul><li><svg><use href="#i-check"/></svg>NestJS, REST API, Swagger</li><li><svg><use href="#i-check"/></svg>Auth, rollar, real-time (Socket.IO)</li><li><svg><use href="#i-check"/></svg>Click va Payme integratsiyasi</li></ul>
+        <h3 data-i18n="k381">Backend va API</h3>
+        <p data-i18n="k382">Ishonchli, xavfsiz va kengaytiriladigan server tomoni.</p>
+        <ul><li data-i18n-text="k383"><svg><use href="#i-check"/></svg>NestJS, REST API, Swagger</li><li data-i18n-text="k384"><svg><use href="#i-check"/></svg>Auth, rollar, real-time (Socket.IO)</li><li data-i18n-text="k385"><svg><use href="#i-check"/></svg>Click va Payme integratsiyasi</li></ul>
       </article>
       <article class="card svc reveal d2">
         <span class="num">06</span>
         <div class="ico" style="color:var(--gold)"><svg><use href="#i-rocket"/></svg></div>
-        <h3>Landing sahifa</h3>
-        <p>Mahsulotingizni chiroyli taqdim etadigan, sotuvchi sahifa.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Premium animatsiyalar</li><li><svg><use href="#i-check"/></svg>SEO va tez yuklanish</li><li><svg><use href="#i-check"/></svg>Tez ishga tushirish</li></ul>
+        <h3 data-i18n="k386">Landing sahifa</h3>
+        <p data-i18n="k387">Mahsulotingizni chiroyli taqdim etadigan, sotuvchi sahifa.</p>
+        <ul><li data-i18n-text="k388"><svg><use href="#i-check"/></svg>Premium animatsiyalar</li><li data-i18n-text="k389"><svg><use href="#i-check"/></svg>SEO va tez yuklanish</li><li data-i18n-text="k390"><svg><use href="#i-check"/></svg>Tez ishga tushirish</li></ul>
       </article>
     </div>
   </div>
@@ -1553,16 +1549,16 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Ish jarayoni</span>
-      <h2 class="h-display">G‘oyadan <span class="grad-text">ishga tushirishgacha</span></h2>
-      <p>Shaffof, bosqichma-bosqich va har doim aloqada.</p>
+      <span data-i18n="k391" class="eyebrow">Ish jarayoni</span>
+      <h2 data-i18n="k392" class="h-display">G‘oyadan <span class="grad-text">ishga tushirishgacha</span></h2>
+      <p data-i18n="k393">Shaffof, bosqichma-bosqich va har doim aloqada.</p>
     </div>
     <div class="steps">
       <div class="steps-line" aria-hidden="true"></div>
-      <div class="step reveal"><div class="step-num"><span class="grad-text">1</span></div><h3>Tushunish</h3><p>Maqsad, foydalanuvchilar va talablarni birga aniqlaymiz.</p></div>
-      <div class="step reveal d1"><div class="step-num"><span class="grad-text">2</span></div><h3>Loyihalash</h3><p>Arxitektura, maʼlumotlar sxemasi va interfeys rejasini tuzaman.</p></div>
-      <div class="step reveal d2"><div class="step-num"><span class="grad-text">3</span></div><h3>Ishlab chiqish</h3><p>Qisqa bosqichlarda quraman va natijani muntazam ko‘rsataman.</p></div>
-      <div class="step reveal d3"><div class="step-num"><span class="grad-text">4</span></div><h3>Ishga tushirish</h3><p>Serverga joylayman, sinovdan o‘tkazaman va qo‘llab-quvvatlayman.</p></div>
+      <div class="step reveal"><div class="step-num"><span class="grad-text">1</span></div><h3 data-i18n="k394">Tushunish</h3><p data-i18n="k395">Maqsad, foydalanuvchilar va talablarni birga aniqlaymiz.</p></div>
+      <div class="step reveal d1"><div class="step-num"><span class="grad-text">2</span></div><h3 data-i18n="k396">Loyihalash</h3><p data-i18n="k397">Arxitektura, maʼlumotlar sxemasi va interfeys rejasini tuzaman.</p></div>
+      <div class="step reveal d2"><div class="step-num"><span class="grad-text">3</span></div><h3 data-i18n="k398">Ishlab chiqish</h3><p data-i18n="k399">Qisqa bosqichlarda quraman va natijani muntazam ko‘rsataman.</p></div>
+      <div class="step reveal d3"><div class="step-num"><span class="grad-text">4</span></div><h3 data-i18n="k400">Ishga tushirish</h3><p data-i18n="k401">Serverga joylayman, sinovdan o‘tkazaman va qo‘llab-quvvatlayman.</p></div>
     </div>
   </div>
 </section>
@@ -1571,29 +1567,29 @@ html.loading .hero *{animation-play-state:paused!important}
 <section class="section" id="savollar" style="padding-top:40px">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Savol-javob</span>
-      <h2 class="h-display">Ko‘p beriladigan <span class="grad-text">savollar</span></h2>
+      <span data-i18n="k402" class="eyebrow">Savol-javob</span>
+      <h2 data-i18n="k403" class="h-display">Ko‘p beriladigan <span class="grad-text">savollar</span></h2>
     </div>
     <div class="faq reveal">
       <details open>
-        <summary>Qanday loyihalarni qabul qilasiz?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
-        <div class="ans">Veb-ilovalar, admin panellar, backend va API, Telegram botlar va mini-ilovalar, landing sahifalar. Mavjud loyihani qo‘llab-quvvatlash va yangi funksiyalar qo‘shishga ham tayyorman.</div>
+        <summary data-i18n-text="k404">Qanday loyihalarni qabul qilasiz?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
+        <div data-i18n="k405" class="ans">Veb-ilovalar, admin panellar, backend va API, Telegram botlar va mini-ilovalar, landing sahifalar. Mavjud loyihani qo‘llab-quvvatlash va yangi funksiyalar qo‘shishga ham tayyorman.</div>
       </details>
       <details>
-        <summary>Loyiha qancha vaqt oladi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
-        <div class="ans">Hajmiga bog‘liq: oddiy Telegram bot yoki landing sahifa — bir necha kun, to‘liq veb-ilova — bir necha hafta. Boshlashdan oldin aniq reja va muddatlarni kelishib olamiz.</div>
+        <summary data-i18n-text="k406">Loyiha qancha vaqt oladi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
+        <div data-i18n="k407" class="ans">Hajmiga bog‘liq: oddiy Telegram bot yoki landing sahifa — bir necha kun, to‘liq veb-ilova — bir necha hafta. Boshlashdan oldin aniq reja va muddatlarni kelishib olamiz.</div>
       </details>
       <details>
-        <summary>Android va desktop ilovalar ham qilasizmi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
-        <div class="ans">Ha. Veb va Telegram’dan tashqari Android telefonlar uchun mobil ilovalar hamda Windows, macOS va Linux uchun desktop dasturlar ishlab chiqaman. Ko‘pincha bitta backend barcha platformalarga xizmat qiladi — bu vaqt va xarajatni tejaydi.</div>
+        <summary data-i18n-text="k408">Android va desktop ilovalar ham qilasizmi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
+        <div data-i18n="k409" class="ans">Ha. Veb va Telegram’dan tashqari Android telefonlar uchun mobil ilovalar hamda Windows, macOS va Linux uchun desktop dasturlar ishlab chiqaman. Ko‘pincha bitta backend barcha platformalarga xizmat qiladi — bu vaqt va xarajatni tejaydi.</div>
       </details>
       <details>
-        <summary>Masofaviy ishlaysizmi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
-        <div class="ans">Ha. Masofaviy ishlashga to‘liq tayyorman, muloqot uchun Telegram, kod uchun esa GitHub orqali ishlayman. Jarayon har doim shaffof bo‘ladi.</div>
+        <summary data-i18n-text="k410">Masofaviy ishlaysizmi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
+        <div data-i18n="k411" class="ans">Ha. Masofaviy ishlashga to‘liq tayyorman, muloqot uchun Telegram, kod uchun esa GitHub orqali ishlayman. Jarayon har doim shaffof bo‘ladi.</div>
       </details>
       <details>
-        <summary>Loyiha topshirilgandan keyin yordam berasizmi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
-        <div class="ans">Albatta. Topshirgandan keyin ham xatolarni tuzatish, yangilash va kengaytirishda yordam beraman.</div>
+        <summary data-i18n-text="k412">Loyiha topshirilgandan keyin yordam berasizmi?<span class="pm"><svg><use href="#i-plus"/></svg></span></summary>
+        <div data-i18n="k413" class="ans">Albatta. Topshirgandan keyin ham xatolarni tuzatish, yangilash va kengaytirishda yordam beraman.</div>
       </details>
     </div>
   </div>
@@ -1604,18 +1600,15 @@ html.loading .hero *{animation-play-state:paused!important}
   <div class="wrap">
     <div class="cta reveal">
       <svg class="pattern" aria-hidden="true"><rect width="100%" height="100%" fill="url(#girih)"/></svg>
-      <span class="eyebrow" style="justify-content:center">Aloqa</span>
-      <h2 class="h-display">Keling, birga <span class="grad-text">ajoyib narsa</span> yarataylik.</h2>
-      <p>G‘oyangiz, loyihangiz yoki shunchaki savolingiz bormi? Yozing — tez orada javob beraman.</p>
+      <span data-i18n="k414" class="eyebrow" style="justify-content:center">Aloqa</span>
+      <h2 data-i18n="k415" class="h-display">Keling, birga <span class="grad-text">ajoyib narsa</span> yarataylik.</h2>
+      <p data-i18n="k416">G‘oyangiz, loyihangiz yoki shunchaki savolingiz bormi? Yozing — tez orada javob beraman.</p>
       <div class="hero-ctas">
-        <a href="https://github.com/Muxur25" target="_blank" rel="noopener" class="btn btn-primary magnetic"><svg><use href="#i-gh"/></svg> GitHub’da yozish <svg class="arr"><use href="#i-arrow"/></svg></a>
+        <a data-i18n-text="k417" href="https://t.me/cardservers" target="_blank" rel="noopener" class="btn btn-primary magnetic"><svg><use href="#i-tg"/></svg> Telegram’da yozish <svg class="arr"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="contact-row">
-        <a href="https://github.com/Muxur25" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span><small>GitHub</small>@Muxur25</span></a>
-        <!-- Telegram va email manzilingizni qo‘shish uchun quyidagi qatorlarni oching va o‘z maʼlumotlaringizni yozing:
-        <a href="https://t.me/USERNAME" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg><span><small>Telegram</small>@USERNAME</span></a>
-        <a href="mailto:EMAIL"><svg><use href="#i-mail"/></svg><span><small>Email</small>EMAIL</span></a>
-        -->
+        <a href="https://t.me/cardservers" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg><span data-i18n="k418"><small>Telegram</small>@cardservers</span></a>
+        <a href="https://github.com/Muxur25" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span data-i18n="k419"><small>GitHub</small>@Muxur25</span></a>
       </div>
     </div>
   </div>
@@ -1627,18 +1620,18 @@ html.loading .hero *{animation-play-state:paused!important}
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <a href="#" class="logo"><span class="logo-mark"><svg><use href="#i-logo"/></svg></span><span>Muxriddin<small>full-stack dev</small></span></a>
-        <p>TypeScript, NestJS, React va Telegram botlar bo‘yicha full-stack dasturchi.</p>
+        <a href="#" class="logo"><span class="logo-mark"><svg><use href="#i-logo"/></svg></span><span data-i18n="k420">Muxriddin<small>full-stack dev</small></span></a>
+        <p data-i18n="k421">TypeScript, NestJS, React va Telegram botlar bo‘yicha full-stack dasturchi.</p>
       </div>
       <div class="foot-links">
-        <a href="#haqimda">Men haqimda</a><a href="#konikmalar">Ko‘nikmalar</a><a href="#loyihalar">Loyihalar</a><a href="#xizmatlar">Xizmatlar</a><a href="#aloqa">Aloqa</a><a href="https://wordup.uz" target="_blank" rel="noopener">wordup.uz</a><a href="https://celebrio.uz" target="_blank" rel="noopener">celebrio.uz</a><a href="https://github.com/Muxur25" target="_blank" rel="noopener">GitHub</a>
+        <a data-i18n="k422" href="#haqimda">Men haqimda</a><a data-i18n="k423" href="#konikmalar">Ko‘nikmalar</a><a data-i18n="k424" href="#loyihalar">Loyihalar</a><a data-i18n="k425" href="#xizmatlar">Xizmatlar</a><a data-i18n="k426" href="#aloqa">Aloqa</a><a data-i18n="k427" href="https://wordup.uz" target="_blank" rel="noopener">wordup.uz</a><a data-i18n="k428" href="https://celebrio.uz" target="_blank" rel="noopener">celebrio.uz</a><a data-i18n="k429" href="https://t.me/cardservers" target="_blank" rel="noopener">Telegram</a><a data-i18n="k430" href="https://github.com/Muxur25" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
     <div class="wordmark" aria-hidden="true">muxriddin</div>
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Muxriddin. O‘zbekistonda ❤ bilan yaratildi.</span>
-      <span class="status"><span class="live-dot"></span>Yangi loyihalarga ochiqman</span>
-      <a href="#" class="to-top">Yuqoriga <svg><use href="#i-arrow"/></svg></a>
+      <span data-i18n-text="k431">© <span id="year">2026</span> Muxriddin. O‘zbekistonda ❤ bilan yaratildi.</span>
+      <span data-i18n="k432" class="status"><span class="live-dot"></span>Yangi loyihalarga ochiqman</span>
+      <a data-i18n-text="k433" href="#" class="to-top">Yuqoriga <svg><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </footer>
@@ -1650,6 +1643,79 @@ html.loading .hero *{animation-play-state:paused!important}
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  /* ===== i18n (uz / ru) ===== */
+  const RU = {"k40": "Деплой · production", "k337": "Склад Pro — Windows · macOS · Linux", "k348": "Telegram-бот · Mini App", "k357": "Десктоп<small>Windows · macOS · Linux</small>", "k358": "Telegram<small>Бот · Mini App</small>","k1": "Главное меню", "k2": "Главная", "k4": "Обо мне", "k5": "Продукты", "k6": "Навыки", "k7": "Проекты", "k8": "Услуги", "k9": "Контакты", "k11": "Связаться", "k12": "Открыть меню", "k13": "Обо мне", "k14": "Продукты", "k15": "Навыки", "k16": "Проекты", "k17": "Услуги", "k18": "Контакты", "k19": "Написать в Telegram", "k20": "Привет, я Мухриддин", "k21": "· открыт для новых проектов", "k22": "Превращаю идеи в", "k23": "продукты", "k24": "веб-приложения", "k25": "Telegram-боты", "k26": "Android-приложения", "k27": "десктоп-приложения", "k28": "API", "k29": "которые работают.", "k30": "Я <b>full-stack разработчик<\/b>. Создаю быстрые, легко масштабируемые и удобные веб-приложения, Android и десктоп-приложения, backend-системы и Telegram-ботов на TypeScript, NestJS и React. Автор <b>wordup.uz<\/b> и <b>celebrio.uz<\/b>.", "k31": "Смотреть проекты", "k32": "Мой GitHub", "k33": "Узбекистан", "k36": "Готов к удалённой работе", "k37": "Аватар Мухриддина на GitHub", "k39": "50+ репозиториев · GitHub", "k41": "Успешно ✓", "k42": "<span class=\"live-dot\"><\/span> Сейчас работаю над", "k43": "Telegram Mini App и backend-системами на NestJS", "k44": "Технологии, которыми пользуюсь каждый день", "k45": "репозиториев на GitHub", "k46": "production-проектов", "k47": "Telegram-ботов", "k48": "платформы: Web · Android · Desktop · Telegram", "k54": "Мухриддин", "k55": "Обо мне", "k56": "Пишу код. <span class=\"grad-text\">Решаю задачи.<\/span>", "k57": "Привет! Я <b>Мухриддин<\/b> — full-stack разработчик, который создаёт обе стороны веб-приложений. От backend-архитектуры, баз данных и API до красивых и быстрых интерфейсов — веду проект от начала до конца.", "k58": "Особенно люблю раскладывать сложную бизнес-логику по аккуратным модулям на <b>NestJS<\/b> и делать удобные сервисы для людей через <b>Telegram-ботов<\/b>. Образовательные платформы, системы обращений, приложения для изучения языков — каждый проект научил меня чему-то новому.", "k59": "Текущее место работы · с декабря 2025", "k60": "АО «Алмалыкский ГМК»", "k61": "Отдел информационно-коммуникационных технологий — специалист технической поддержки IT", "k62": "<span class=\"live-dot\"><\/span>Сейчас", "k63": "Местоположение", "k64": "Узбекистан", "k65": "На GitHub", "k66": "с 2021 года", "k67": "Основной язык", "k69": "Статус", "k70": "Открыт для фриланса", "k71": "Давайте работать вместе", "k72": "Мой путь", "k73": "От первой строки <span class=\"grad-text\">до production<\/span>", "k74": "Путь от учебных упражнений до платформ, которыми пользуются реальные люди.", "k75": "Начало", "k76": "Первый шаг в программирование", "k77": "Создал аккаунт на GitHub и вошёл в мир разработки. Главная цель — самому создавать то, чем пользуюсь сам.", "k78": "Фундамент", "k79": "JavaScript, Node.js и базы данных", "k80": "Глубоко изучил JavaScript, TypeScript, Node.js, Express, PostgreSQL, React и Redux. Создал полноценные приложения — интернет-магазин и сервис аренды автомобилей.", "k85": "Архитектура", "k86": "NestJS и чистый backend", "k87": "Модульная архитектура, Prisma и Mongoose, JWT-аутентификация. Создал open-source стартеры для быстрого запуска новых проектов.", "k92": "Декабрь · сейчас", "k93": "АО «Алмалыкский ГМК» — техническая поддержка IT", "k94": "Работаю в отделе информационно-коммуникационных технологий АО «Алмалыкский горно-металлургический комбинат»: техническая поддержка пользователей, компьютерная и сетевая техника, работа с программным обеспечением.", "k96": "Сети", "k98": "Корпоративный IT", "k99": "Весна", "k100": "Первые production-продукты", "k101": "LMS-платформа для обучения, система HelpDesk, Telegram-боты и WordUp (wordup.uz) — запущены для реальных пользователей.", "k106": "Осень · сейчас", "k107": "Большие платформы", "k108": "Платформа цифровых приглашений Celebrio (celebrio.uz), Mini App для совместных поездок kettuu и ТВ-платформа Efir: монорепозиторий, real-time, платежи, e2e-тесты.", "k113": "Навыки", "k114": "От сервера <span class=\"grad-text\">до экрана<\/span>", "k115": "Работаю со всеми слоями, необходимыми для создания продукта целиком.", "k116": "Backend и API", "k117": "Модульная архитектура на NestJS, REST API, JWT-аутентификация, роли и права доступа. Надёжный слой данных на Prisma и Mongoose.", "k123": "Быстрые, адаптивные и живые интерфейсы на React и Next.js.", "k127": "Telegram-боты", "k128": "Боты для скачивания, погоды, обучения и сервисов — вместе с Telegram Mini App.", "k129": "Бот для изучения слов", "k130": "Сообщение…", "k131": "Базы данных", "k132": "Правильная схема — основа быстрого приложения.", "k137": "Деплой и DevOps", "k138": "Docker, Linux-серверы и Git — в релиз уходит только рабочий код.", "k139": "Ключевые технологии", "k140": "Инструменты, которыми пользуюсь каждый день и знаю глубоко.", "k142": "ежедневно", "k144": "основной", "k146": "основной", "k148": "уверенно", "k150": "любимый", "k152": "хорошо", "k153": "Живые продукты", "k154": "Мои продукты, <span class=\"grad-text\">работающие онлайн<\/span>", "k155": "Платформы, которые я построил сам от начала до конца — от идеи, дизайна, backend и платежей до деплоя — и которые сейчас работают в интернете.", "k156": "Серия подряд", "k157": "12 дней", "k158": "Pomodoro-фокус", "k161": "Главная", "k162": "Книги", "k163": "Избранное", "k164": "Музыка", "k165": "Статистика", "k166": "Профиль", "k167": "Повторение на сегодня", "k168": "🇬🇧 Английский · B1", "k169": "Чтение", "k170": "Быстрый", "k171": "Аудирование", "k172": "Письмо", "k173": "Речь", "k174": "Пары", "k175": "✓ выучено · +10 XP", "k176": "запоминание", "k177": "повторено сегодня", "k178": "Уровень 7", "k180": "Логотип WordUp", "k183": "<span class=\"live-dot\"><\/span>Работает", "k184": "Учите английские и русские слова <span style=\"background:linear-gradient(90deg,#818cf8,#c084fc,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent\">быстро<\/span> и не забывайте никогда", "k185": "Платформа для изучения слов на основе интервального повторения (spaced repetition). WordUp определяет слова, которые вы начинаете забывать, и показывает их снова именно в нужный момент — так слова остаются в долговременной памяти. Есть и версия в виде Telegram Mini App.", "k186": "языка: английский · русский", "k187": "режимов обучения", "k189": "умное повторение", "k191": "платформы", "k192": "Режимы чтения, аудирования, письма и речи", "k193": "Тест на определение уровня (placement test)", "k194": "Книги и собственные наборы слов", "k195": "Музыка и Pomodoro для фокуса", "k196": "Серии, статистика и панель аналитики", "k197": "Админ-панель, тарифы и платежи", "k205": "Перейти на wordup.uz", "k206": "Новый ответ · только что", "k207": "Дильшод: «Обязательно приду» +2", "k208": "Подтвердили гостей", "k209": "Уведомление в Telegram", "k210": "Пришёл RSVP", "k211": "Приглашение на свадьбу", "k212": "Азиз<small>&amp;<\/small>Мадина", "k213": "21 · НОЯБРЯ · 2026  |  18:00", "k214": "дней", "k215": "часов", "k216": "минут", "k217": "секунд", "k218": "Банкетный зал «Навруз» · Открыть на карте", "k219": "Обязательно приду ✓", "k220": "К сожалению, не смогу", "k221": "<span class=\"eq\"><i><\/i><i><\/i><i><\/i><i><\/i><\/span>Фоновая музыка включена", "k224": "<span class=\"live-dot\"><\/span>Работает", "k225": "Каждое приглашение — <span style=\"background:linear-gradient(110deg,#f6e3b4,#e2c083 40%,#c79a56);-webkit-background-clip:text;background-clip:text;color:transparent\">незабываемый момент<\/span>", "k226": "Платформа цифровых приглашений: выбираете шаблон, персонализируете его, публикуете по личной ссылке и собираете ответы гостей (RSVP) в одном месте. На узбекском, русском и английском языках. Приглашение готово за пять минут.", "k227": "языка: uz · ru · en", "k228": "видов событий", "k229": "~5 мин", "k230": "на создание", "k231": "backend-модулей", "k232": "Свадьба, помолвка, день рождения, акика и другие", "k233": "RSVP в один клик и живой список гостей", "k234": "Живой отсчёт, карта, галерея и фоновая музыка", "k235": "Премиум-шаблоны: золотые буквы, северное сияние", "k236": "Уведомления в Telegram и экспорт в CSV", "k237": "Интеграция платежей Click и Payme", "k246": "Перейти на celebrio.uz", "k247": "Проекты", "k248": "Избранные <span class=\"grad-text\">работы<\/span>", "k249": "Каждый — решение реальной задачи. Часть из них с открытым кодом, часть — закрытые проекты для клиентов.", "k250": "Фильтр проектов", "k251": "Все", "k252": "Веб-приложения", "k255": "Мои курсы <span style=\"font-family:var(--font-mono);font-size:10px;color:var(--turq)\">3 активных<\/span>", "k256": "Основы JavaScript", "k260": "SQL и базы данных", "k262": "🏆 Сертификат готов", "k263": "📅 Урок: 19:00", "k264": "Веб-приложение · Full-stack", "k265": "LMS — система управления обучением", "k266": "Полноценная система для управления курсами, уроками, студентами и преподавателями на одной платформе. Frontend и backend построены как отдельные сервисы, с доступом на основе ролей.", "k271": "Закрытый проект", "k272": "<span class=\"id\">#1042<\/span>Не работает принтер<span class=\"st\" style=\"background:rgba(255,107,139,.15);color:var(--rose)\">Новая<\/span>", "k273": "<span class=\"id\">#1041<\/span>Сброс пароля<span class=\"st\" style=\"background:rgba(245,185,66,.15);color:var(--gold)\">В работе<\/span>", "k274": "<span class=\"id\">#1039<\/span>Не подключается VPN<span class=\"st\" style=\"background:rgba(94,240,160,.15);color:var(--mint)\">Решено<\/span>", "k275": "<span class=\"id\">#1036<\/span>Создать новый аккаунт<span class=\"st\" style=\"background:rgba(94,240,160,.15);color:var(--mint)\">Решено<\/span>", "k276": "Веб-приложение", "k277": "Система HelpDesk", "k278": "Внутренняя платформа службы поддержки: приём обращений, распределение по ответственным и отслеживание статуса.", "k282": "Закрытый проект", "k283": "<i><\/i>ЭФИР", "k284": "Веб-платформа · Full-stack", "k285": "Efir — телеканалы мира", "k286": "Платформа для просмотра бесплатных прямых эфиров телеканалов любой страны в одном месте: выберите страну, выберите канал, смотрите. Данные обновляются плановой синхронизацией.", "k292": "Закрытый проект", "k293": "🟢 Чиланзар", "k294": "🏁 Ташкентская область", "k295": "🚗 Водитель через 4 мин · 25 000 сум", "k297": "kettuu — платформа совместных поездок", "k298": "Сервис совместных поездок для Ташкента и Ташкентской области. Пассажир в Telegram Mini App находит подходящего водителя, бронирует, отслеживает в реальном времени, оплачивает и оценивает поездку. Водитель публикует рейсы и видит свой доход, а админ управляет всем, включая SOS в реальном времени.", "k307": "Закрытый проект", "k308": "https://… ссылка 🎬", "k309": "⏳ Загрузка… <b style=\"color:var(--mint)\">100%<\/b><small>✓ видео готово<\/small>", "k310": "/погода Ташкент", "k311": "☀️ Ташкент: +24°C, ясно<small>сегодня 12:04<\/small>", "k312": "Telegram-боты", "k313": "Набор Telegram-ботов", "k314": "Бот для скачивания медиа, бот погоды, боты времени и напоминаний, а также сервисные боты для организаций.", "k318": "Закрытые проекты", "k323": "Backend · Открытый код", "k324": "Стартеры на NestJS", "k325": "Готовые шаблоны NestJS + Prisma, NestJS + Mongoose и JWT-аутентификации — для быстрого старта нового проекта.", "k333": "Все репозитории", "k334": "Платформы", "k335": "Одна идея — <span class=\"grad-text\">на всех экранах<\/span>", "k336": "Ваш продукт будет там, где он нужен: в браузере, на Android-смартфоне, на компьютере или внутри Telegram.", "k338": "Продажи<b>1 284<\/b>", "k339": "Клиенты<b>562<\/b>", "k340": "Выручка<b>+18%<\/b>", "k341": "Десктоп-приложение", "k342": "<i style=\"background:linear-gradient(140deg,#7cc4ff,#8b7bff)\"><\/i>Бот заказов", "k343": "/меню", "k344": "Здравствуйте! Меню на сегодня готово 🍽", "k345": "2 плова, 1 салат", "k346": "✅ Заказ принят! Доставим через 25 минут.", "k347": "Открыть Mini App", "k349": "<i style=\"background:linear-gradient(140deg,#5ef0a0,#30e0c8)\"><\/i>Android-приложение", "k350": "Баланс за сегодня<b>2 450 000 сум<\/b>", "k351": "Заказы<b>34<\/b>", "k352": "Рейтинг<b>4.9<\/b>", "k353": "Push-уведомление<b style=\"font-size:13px\">Новый заказ! 🔔<\/b>", "k354": "Android-приложение", "k355": "Веб<small>React · Next.js<\/small>", "k356": "Android<small>Мобильные приложения<\/small>", "k359": "Услуги", "k360": "Чем я могу <span class=\"grad-text\">вам помочь<\/span>", "k361": "Веб-приложения", "k362": "Full-stack разработка от идеи до готового продукта.", "k363": "SaaS, CRM, LMS, админ-панели", "k364": "Адаптивный и быстрый интерфейс", "k365": "Мультиязычность (uz · ru · en)", "k366": "Android-приложения", "k367": "Удобные и быстрые мобильные приложения для вашего смартфона.", "k368": "Бизнес- и сервисные приложения", "k369": "Push-уведомления и офлайн-режим", "k370": "Публикация в Google Play", "k371": "Десктоп-приложения", "k372": "Мощные программы для компьютера: офис, склад, касса и системы управления.", "k373": "Для Windows, macOS и Linux", "k374": "Работа офлайн и синхронизация", "k375": "Автоматические обновления", "k376": "Telegram-боты и Mini App", "k377": "Умный помощник для вашего бизнеса и приложения внутри Telegram.", "k378": "Боты заказов, бронирования и сервисов", "k380": "Админ-панель и платежи", "k381": "Backend и API", "k382": "Надёжная, безопасная и масштабируемая серверная часть.", "k384": "Auth, роли, real-time (Socket.IO)", "k385": "Интеграция Click и Payme", "k386": "Лендинги", "k387": "Продающая страница, которая красиво представит ваш продукт.", "k388": "Премиальные анимации", "k389": "SEO и быстрая загрузка", "k390": "Быстрый запуск", "k391": "Процесс работы", "k392": "От идеи <span class=\"grad-text\">до запуска<\/span>", "k393": "Прозрачно, поэтапно и всегда на связи.", "k394": "Понимание", "k395": "Вместе определяем цели, пользователей и требования.", "k396": "Проектирование", "k397": "Составляю архитектуру, схему данных и план интерфейса.", "k398": "Разработка", "k399": "Работаю короткими итерациями и регулярно показываю результат.", "k400": "Запуск", "k401": "Разворачиваю на сервере, тестирую и поддерживаю.", "k402": "Вопросы и ответы", "k403": "Частые <span class=\"grad-text\">вопросы<\/span>", "k404": "Какие проекты вы берёте?", "k405": "Веб-приложения, админ-панели, backend и API, Telegram-боты и Mini App, лендинги. Также готов поддерживать существующие проекты и добавлять новые функции.", "k406": "Сколько времени занимает проект?", "k407": "Зависит от объёма: простой Telegram-бот или лендинг — несколько дней, полноценное веб-приложение — несколько недель. Перед стартом согласуем чёткий план и сроки.", "k408": "Делаете ли вы Android и десктоп-приложения?", "k409": "Да. Помимо веба и Telegram, разрабатываю мобильные приложения для Android и десктоп-программы для Windows, macOS и Linux. Часто один backend обслуживает все платформы — это экономит время и бюджет.", "k410": "Работаете ли вы удалённо?", "k411": "Да. Полностью готов к удалённой работе: общение — в Telegram, код — на GitHub. Процесс всегда прозрачен.", "k412": "Помогаете ли вы после сдачи проекта?", "k413": "Конечно. И после сдачи помогаю с исправлением ошибок, обновлениями и развитием.", "k414": "Контакты", "k415": "Давайте создадим <span class=\"grad-text\">что-то крутое<\/span> вместе.", "k416": "Есть идея, проект или просто вопрос? Пишите — отвечу в ближайшее время.", "k417": "Написать в Telegram", "k421": "Full-stack разработчик: TypeScript, NestJS, React и Telegram-боты.", "k422": "Обо мне", "k423": "Навыки", "k424": "Проекты", "k425": "Услуги", "k426": "Контакты", "k431": "Мухриддин. Сделано с ❤ в Узбекистане.", "k432": "<span class=\"live-dot\"><\/span>Открыт для новых проектов", "k433": "Наверх"};
+  const DYN = {
+    uz: {
+      title: 'Muxriddin — Full-stack dasturchi',
+      desc: 'Muxriddin — TypeScript, NestJS, React va Telegram botlar bo‘yicha full-stack dasturchi. Loyihalar, ko‘nikmalar va aloqa.',
+      flip: 'aylantiring', typing: 'yozmoqda…', bot: 'bot',
+      term: '<span class="ok">✓</span> Kompilyatsiya tugadi · 0 xato · <span class="ok">tayyor</span>',
+      img: 'Image yaratildi · 42 MB', up: 'api, db, bot — ishga tushdi', tv0: '🇺🇿 O‘zbekiston 24',
+      words: [['EN', 'Achievement', '/əˈtʃiːv.mənt/', 'Yutuq'], ['RU', 'Книга', '[kníga]', 'Kitob'], ['EN', 'Journey', '/ˈdʒɜː.ni/', 'Sayohat'], ['RU', 'Дружба', '[drúzhba]', 'Do‘stlik'], ['EN', 'Brave', '/breɪv/', 'Jasur']],
+      chat: [
+        ['me', '/start'],
+        ['bot', 'Assalomu alaykum! 👋 Bugun 10 ta yangi so‘z o‘rganamiz. Tayyormisiz?<div class="kb"><span>Boshlash ▶</span><span>Sozlamalar</span></div>'],
+        ['me', 'Boshlash ▶'],
+        ['bot', '📘 <b>Achievement</b> — bu so‘z nimani anglatadi?<div class="kb"><span>Yutuq</span><span>Xato</span><span>Vazifa</span><span>Kitob</span></div>'],
+        ['me', 'Yutuq'],
+        ['bot', '✅ To‘g‘ri! +10 XP<br/>Ketma-ket <b>5 kun</b> 🔥 Davom etamizmi?']
+      ]
+    },
+    ru: {
+      title: 'Мухриддин — Full-stack разработчик',
+      desc: 'Мухриддин — full-stack разработчик: TypeScript, NestJS, React и Telegram-боты. Проекты, навыки и контакты.',
+      flip: 'переверните', typing: 'печатает…', bot: 'бот',
+      term: '<span class="ok">✓</span> Сборка завершена · 0 ошибок · <span class="ok">готово</span>',
+      img: 'Образ собран · 42 MB', up: 'api, db, bot — запущены', tv0: '🇺🇿 Узбекистан 24',
+      words: [['EN', 'Achievement', '/əˈtʃiːv.mənt/', 'Достижение'], ['EN', 'Book', '/bʊk/', 'Книга'], ['EN', 'Journey', '/ˈdʒɜː.ni/', 'Путешествие'], ['EN', 'Friendship', '/ˈfrend.ʃɪp/', 'Дружба'], ['EN', 'Brave', '/breɪv/', 'Смелый']],
+      chat: [
+        ['me', '/start'],
+        ['bot', 'Привет! 👋 Сегодня выучим 10 новых слов. Готовы?<div class="kb"><span>Начать ▶</span><span>Настройки</span></div>'],
+        ['me', 'Начать ▶'],
+        ['bot', '📘 <b>Achievement</b> — что означает это слово?<div class="kb"><span>Достижение</span><span>Ошибка</span><span>Задача</span><span>Книга</span></div>'],
+        ['me', 'Достижение'],
+        ['bot', '✅ Верно! +10 XP<br/>Серия <b>5 дней</b> 🔥 Продолжим?']
+      ]
+    }
+  };
+  let LANG = 'uz';
+  const T = k => DYN[LANG][k];
+  const LETTER = /[A-Za-zА-Яа-яЁё‘’ʻ]/;
+  const i18nEls = $$('[data-i18n]').map(el => ({ el, k: el.dataset.i18n, uz: el.innerHTML }));
+  const i18nTexts = $$('[data-i18n-text]').map(el => {
+    const keys = el.dataset.i18nText.split('|');
+    const nodes = [...el.childNodes].filter(n => n.nodeType === 3 && LETTER.test(n.textContent));
+    return nodes.map((n, i) => { const m = n.textContent.match(/^(\s*)([\s\S]*?)(\s*)$/); return { n, k: keys[i], lead: m[1], uz: m[2], trail: m[3] }; });
+  }).flat();
+  const i18nAttrs = [];
+  ['aria-label', 'alt', 'placeholder', 'title'].forEach(a => $$(`[data-i18n-${a}]`).forEach(el => i18nAttrs.push({ el, a, k: el.getAttribute(`data-i18n-${a}`), uz: el.getAttribute(a) })));
+  const applyLang = (lang, first) => {
+    LANG = lang === 'ru' ? 'ru' : 'uz';
+    const ru = LANG === 'ru';
+    document.documentElement.lang = LANG;
+    i18nEls.forEach(x => { const v = ru && RU[x.k] != null ? RU[x.k] : x.uz; if (x.el.innerHTML !== v || !first) x.el.innerHTML = v; });
+    i18nTexts.forEach(x => { if (x.k) x.n.textContent = x.lead + (ru && RU[x.k] != null ? RU[x.k] : x.uz) + x.trail; });
+    i18nAttrs.forEach(x => x.el.setAttribute(x.a, ru && RU[x.k] != null ? RU[x.k] : x.uz));
+    document.title = T('title');
+    const md = $('meta[name="description"]'); md && md.setAttribute('content', T('desc'));
+    $('#termOut').innerHTML = T('term');
+    $('#tvName') && ($('#tvName').textContent = T('tv0'));
+    $$('.lang-switch button').forEach(b => b.classList.toggle('on', b.dataset.lang === LANG));
+    try { localStorage.setItem('lang', LANG); } catch (e) {}
+    if (!first) {
+      $$('.section-head h2, .about h2, .cta h2').forEach(splitHeading);
+      const w = DYN[LANG].words[0];
+      $('#wuLang').textContent = w[0]; $('#wuFront').textContent = w[1]; $('#wuHint').textContent = w[2] + ' · ' + T('flip'); $('#wuBack').textContent = w[3];
+      dispatchEvent(new Event('resize'));
+    }
+  };
+  let startLang = 'uz';
+  try { startLang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'uz'; } catch (e) {}
+  applyLang(startLang, true);
+  $$('.lang-switch button').forEach(b => b.addEventListener('click', () => { if (b.dataset.lang !== LANG) applyLang(b.dataset.lang); }));
+
 
   /* Nav + progress + active link */
   const nav = $('#nav'), burger = $('#burger'), menu = $('#mobileMenu'), prog = $('#progress');
@@ -1738,6 +1804,15 @@ html.loading .hero *{animation-play-state:paused!important}
   /* Reveal */
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12, rootMargin: '0px 0px -60px 0px' });
   $$('.reveal').forEach(el => io.observe(el));
+  // Fallback: reveal anything already scrolled past (fast jumps can skip IO callbacks)
+  let revTick = false;
+  addEventListener('scroll', () => {
+    if (revTick) return; revTick = true;
+    requestAnimationFrame(() => {
+      revTick = false;
+      $$('.reveal:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight * .9) { el.classList.add('in'); io.unobserve(el); } });
+    });
+  }, { passive: true });
 
   /* Counters */
   const fmt = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -1759,14 +1834,6 @@ html.loading .hero *{animation-play-state:paused!important}
 
   /* Telegram bot demo */
   const tgBody = $('#tgBody'), tgStatus = $('#tgStatus');
-  const script = [
-    ['me', '/start'],
-    ['bot', 'Assalomu alaykum! 👋 Bugun 10 ta yangi so‘z o‘rganamiz. Tayyormisiz?<div class="kb"><span>Boshlash ▶</span><span>Sozlamalar</span></div>'],
-    ['me', 'Boshlash ▶'],
-    ['bot', '📘 <b>Achievement</b> — bu so‘z nimani anglatadi?<div class="kb"><span>Yutuq</span><span>Xato</span><span>Vazifa</span><span>Kitob</span></div>'],
-    ['me', 'Yutuq'],
-    ['bot', '✅ To‘g‘ri! +10 XP<br/>Ketma-ket <b>5 kun</b> 🔥 Davom etamizmi?']
-  ];
   const addBub = (who, html) => {
     const d = document.createElement('div'); d.className = `bub ${who}`;
     d.innerHTML = html + `<small>${who === 'me' ? '12:0' + (tgBody.children.length % 10) + ' ✓✓' : '12:0' + (tgBody.children.length % 10)}</small>`;
@@ -1778,11 +1845,11 @@ html.loading .hero *{animation-play-state:paused!important}
   const runTg = async () => {
     while (true) {
       tgBody.innerHTML = '';
-      for (const [who, html] of script) {
+      for (const [who, html] of T('chat')) {
         if (who === 'bot') {
-          tgStatus.textContent = 'yozmoqda…';
+          tgStatus.textContent = T('typing');
           const t = document.createElement('div'); t.className = 'bub bot'; t.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>'; tgBody.appendChild(t);
-          await sleep(1000); t.remove(); tgStatus.textContent = 'bot';
+          await sleep(1000); t.remove(); tgStatus.textContent = T('bot');
         }
         addBub(who, html); await sleep(who === 'me' ? 500 : 1600);
       }
@@ -1796,15 +1863,15 @@ html.loading .hero *{animation-play-state:paused!important}
   const shLines = [
     '<span class="pr">$</span> git push origin main',
     '<span class="pr">$</span> docker build -t api .',
-    '<span class="ok">✓</span> Image yaratildi · 42 MB',
+    () => '<span class="ok">✓</span> ' + T('img'),
     '<span class="pr">$</span> docker compose up -d',
-    '<span class="ok">✓</span> api, db, bot — ishga tushdi',
+    () => '<span class="ok">✓</span> ' + T('up'),
   ];
   let shStarted = false;
   const runShell = async () => {
     while (true) {
       shell.innerHTML = '';
-      for (const l of shLines) { shell.innerHTML += l + '<br/>'; await sleep(700); }
+      for (const l of shLines) { shell.innerHTML += (typeof l === 'function' ? l() : l) + '<br/>'; await sleep(700); }
       shell.innerHTML += '<span class="pr">$</span> <span class="caret"></span>';
       await sleep(3500);
     }
@@ -1861,7 +1928,8 @@ html.loading .hero *{animation-play-state:paused!important}
   }
 
   /* Split section headings into masked words */
-  $$('.section-head h2, .about h2, .cta h2').forEach(h => {
+  $$('.section-head h2, .about h2, .cta h2').forEach(splitHeading);
+  function splitHeading(h) {
     const frag = document.createDocumentFragment(); let i = 0;
     const wrap = node => { const w = document.createElement('span'); w.className = 'w'; node.style && (node.style.transitionDelay = `${i * .06}s`); w.appendChild(node); i++; return w; };
     [...h.childNodes].forEach(n => {
@@ -1875,7 +1943,7 @@ html.loading .hero *{animation-play-state:paused!important}
       else frag.appendChild(wrap(n));
     });
     h.textContent = ''; h.appendChild(frag);
-  });
+  }
 
   /* Kinetic band: scroll-linked drift + velocity skew */
   const band = $('#band'); let lastY = scrollY, skew = 0;
@@ -1899,21 +1967,15 @@ html.loading .hero *{animation-play-state:paused!important}
   addEventListener('scroll', tlUpdate, { passive: true }); tlUpdate();
 
   /* WordUp demo */
-  const wuWords = [
-    ['EN', 'Achievement', '/əˈtʃiːv.mənt/', 'Yutuq'],
-    ['RU', 'Книга', '[kníga]', 'Kitob'],
-    ['EN', 'Journey', '/ˈdʒɜː.ni/', 'Sayohat'],
-    ['RU', 'Дружба', '[drúzhba]', 'Do‘stlik'],
-    ['EN', 'Brave', '/breɪv/', 'Jasur']
-  ];
+  const wuWords = () => T('words');
   const wuCard = $('#wuCard'), wuModes = $$('#wuModes span'), wuCount = $('#wuCount');
   let wi = 0, mi = 0, wuCnt = 142;
   setInterval(() => {
     if (!wuCard.classList.contains('flip')) { wuCard.classList.add('flip'); return; }
     wuCard.classList.remove('flip');
     setTimeout(() => {
-      wi = (wi + 1) % wuWords.length; const w = wuWords[wi];
-      $('#wuLang').textContent = w[0]; $('#wuFront').textContent = w[1]; $('#wuHint').textContent = w[2] + ' · aylantiring'; $('#wuBack').textContent = w[3];
+      const ws = wuWords(); wi = (wi + 1) % ws.length; const w = ws[wi];
+      $('#wuLang').textContent = w[0]; $('#wuFront').textContent = w[1]; $('#wuHint').textContent = w[2] + ' · ' + T('flip'); $('#wuBack').textContent = w[3];
       wuCount.textContent = ++wuCnt;
     }, 450);
   }, 1900);
@@ -1947,7 +2009,7 @@ html.loading .hero *{animation-play-state:paused!important}
   /* Efir channel switcher */
   const tvNames = ['🇺🇿 O‘zbekiston 24', '🇹🇷 TRT Haber', '🇰🇷 Arirang', '🇬🇧 BBC News', '🇯🇵 NHK World', '🇫🇷 France 24', '🇩🇪 DW', '🇮🇹 Rai News'];
   const tvCh = $$('#tvCh span'); let ti = 0;
-  setInterval(() => { tvCh[ti].classList.remove('on'); ti = (ti + 1) % tvCh.length; tvCh[ti].classList.add('on'); $('#tvName').textContent = tvNames[ti]; }, 2000);
+  setInterval(() => { tvCh[ti].classList.remove('on'); ti = (ti + 1) % tvCh.length; tvCh[ti].classList.add('on'); $('#tvName').textContent = ti === 0 ? T('tv0') : tvNames[ti]; }, 2000);
 
   /* Platforms parallax */
   const plat = $('#platforms');
